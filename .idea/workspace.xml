@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e71e4ed4-82a6-41c3-b87e-ed4a15f27591" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1epoO9qnXYZ1pa6hbrfPVXYalFL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/ag" />
+      <recent name="$PROJECT_DIR$/img" />
+      <recent name="$PROJECT_DIR$/css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js" />
+      <recent name="$PROJECT_DIR$/img" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/ag" />
+      <recent name="$PROJECT_DIR$/css" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e71e4ed4-82a6-41c3-b87e-ed4a15f27591" name="Default Changelist" comment="" />
+      <created>1595027860867</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595027860867</updated>
+      <workItem from="1595027862462" duration="677000" />
+      <workItem from="1595028554759" duration="2958000" />
+      <workItem from="1595031905025" duration="4474000" />
+      <workItem from="1595069937101" duration="43489000" />
+      <workItem from="1595175838789" duration="19417000" />
+      <workItem from="1595257859328" duration="30460000" />
+      <workItem from="1595339573410" duration="72337000" />
+      <workItem from="1595508635038" duration="25850000" />
+      <workItem from="1595589733024" duration="2687000" />
+      <workItem from="1595599434536" duration="21279000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="600" height="424" key="javadoc.popup" timestamp="1595635706418">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="600" height="424" key="javadoc.popup/0.25.1920.1055/-1643.25.1643.1025@0.25.1920.1055" timestamp="1595635706418" />
+    <state x="187" y="259" width="670" height="676" key="search.everywhere.popup" timestamp="1595348012971">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="187" y="259" width="670" height="676" key="search.everywhere.popup/0.25.1920.1055/-1643.25.1643.1025@0.25.1920.1055" timestamp="1595348012971" />
+  </component>
+</project>
