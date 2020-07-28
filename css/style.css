@@ -1,4 +1,5 @@
 #invoice_form {
+    zoom: 65%;
     margin: auto;
     padding: 10px;
     border-radius: 10px;
@@ -16,7 +17,6 @@
 body {
     margin: auto;
     background: #fafafa;
-    zoom: 65%;
 }
 
 img {
