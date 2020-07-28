@@ -1449,6 +1449,28 @@ function getListeDesCessions() {
             if (cessions.childNodes.length > 0) {
                 var titreCedant = sexe;
                 var nom = (document.getElementById('nb_' + id + "_N").value).toUpperCase() + " " + ((document.getElementById('nb_' + id + "_P").value).charAt(0).toUpperCase() + (document.getElementById('nb_' + id + "_P").value).substring(1));
+
+                // for (var j = 0; j < cessions.childNodes.length; j++) {
+                //     var temp = 'cession_'+id+'_de_'+j;
+                //     var tempReplaced = temp.replace(id.toString(), '');
+                //     var idJ = tempReplaced.substring(12);
+                //     console.log('idJ : ' + idJ);
+                //     console.log('sexe_cession_'+idJ+'_de_'+id);
+                //
+                //     var choix_sexe_cession = document.getElementsByName('sexe_cession_'+idJ+'_de_'+id);
+                //     var s = "";
+                //     if (choix_sexe_cession[0].checked) s = choix_sexe[0].value;
+                //     if (choix_sexe_cession[1].checked) s = choix_sexe[1].value;
+                //
+                //     listeDesCessions.push({
+                //         titre: titreCedant,
+                //         nomCedant: nom,
+                //         parts: cessions.childNodes[j].childNodes[3].childNodes[0].value,
+                //         titreCessionnaire: s,
+                //         nomCessionnaire: cessions.childNodes[j].childNodes[0].childNodes[0].value.toUpperCase() + " " + (cessions.childNodes[j].childNodes[1].childNodes[0].value.charAt(0).toUpperCase() + cessions.childNodes[j].childNodes[1].childNodes[0].value.substring(1))
+                //     });
+                // }
+
                 for (var j = 0; j < cessions.childNodes.length; j++) {
                     var choix_sexe_cession = document.getElementsByName('sexe_cession_'+j+'_de_'+id);
                     var s = "";

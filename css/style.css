@@ -1,25 +1,22 @@
 #invoice_form {
     margin: auto;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     border: 20px;
     margin-top: 10px;
-
     text-align: center;
-
-    width: 80%;
+    width: 85%;
     height: auto;
 }
 
 .invoice_element {
-    margin: 10px;
-    width: 50%;
+    width: 80%;
 }
-
 
 body {
     margin: auto;
     background: #fafafa;
+    zoom: 65%;
 }
 
 img {

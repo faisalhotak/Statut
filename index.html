@@ -47,299 +47,275 @@
 
 
 <div id="invoice_form">
-    <div class="row" style="float: left; width: 49%;">
-        <div class="card">
-
-            <div class="card-image" style="background-color: rgba(167,213,246,0.6);
-                        background-image: linear-gradient(62deg, #a7d5f6 0%, #a7d5f6 100%);
-                        height: 50px;">
-            </div>
-            <div class="card-content">
-                <span class="card-title">Formulaire n° 1</span>
-                <center>
-                    <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
-                    <div class="input-field  invoice_element" style="margin-top: 30px;">
-                        <input onchange="setRecherche(value)" type="text" class="materialize-textarea" id="numero_entreprise" placeholder="Ex. : 0123.456.789">
-                        <label for="numero_entreprise">Numéro d'entreprise</label>
-                    </div>
-
-                    <div class="input-field  invoice_element">
-                        <input type="text" class="materialize-textarea" id="nom">
-                        <label for="nom">Nom</label>
-                    </div>
-
-
-                    <div class="input-field invoice_element" style="margin-top: 20px;margin-bottom: 20px;">
-                        <select id="select_forme_legale">
-                            <option value="" disabled selected>Veuillez choisir</option>
-                            <option value="Société anonyme">(SA) - Société anonyme</option>
-                            <option value="Société à responsabilité limitée">(SRL) - Société à responsabilité limitée</option>
-                            <option value="Société privée à responsabilité limitée">(SPRL) - Société privée à responsabilité limitée</option>
-                            <option value="Société privée à responsabilité limitée starter">(SPRL-S) - Société privée à responsabilité limitée starter</option>
-                            <option value="Société coopérative à responsabilité limitée">(SCRL) - Société coopérative à responsabilité limitée</option>
-                            <option value="Société coopérative à responsabilité illimitée">(SCRI) - Société coopérative à responsabilité illimitée</option>
-                            <option value="Société en nom collectif">(SNC) - Société en nom collectif</option>
-                            <option value="Société en commandite simple">(SCS) - Société en commandite simple</option>
-                            <option value="Société en commandite par actions">(SCA) - Société en commandite par actions</option>
-                            <option value="Association sans but lucratif">(ASBL) - Association sans but lucratif</option>
-                        </select>
-                        <label for="select_forme_legale">Forme légale</label>
-                    </div>
-
-                    <div class="input-field invoice_element">
-                        <input type="text" class="materialize-textarea" id="rue">
-                        <label for="rue">Rue</label>
-                    </div>
-
-                    <div class="input-field  invoice_element">
-                        <input type="text" class="materialize-textarea" id="numero_rue">
-                        <label for="numero_rue">N° de rue</label>
-                    </div>
-
-                    <div class="input-field  invoice_element">
-                        <input type="text" class="materialize-textarea" id="boite">
-                        <label for="boite">Boite</label>
-                    </div>
-
-                    <div class="input-field  invoice_element">
-                        <input type="text" class="materialize-textarea" id="code_postal">
-                        <label for="code_postal">Code postal</label>
-                    </div>
-
-                    <div class="input-field  invoice_element">
-                        <input onchange="setFaitA(this.value)" type="text" class="materialize-textarea" id="localite">
-                        <label for="localite">Localité</label>
-                    </div>
-
-                    <div class="input-field  invoice_element">
-                        <input type="text" class="materialize-textarea" id="pays" value="Belgique">
-                        <label for="pays">Pays</label>
-                    </div>
-
-                    <div class="input-field invoice_element" style="margin-top: 20px;margin-bottom: 20px;">
-                        <select onchange="checkFormeLegale()" id="select_objet_acte" multiple>
-                            <option value="" disabled>Veuillez choisir</option>
-                            <option value="Cession de parts sociales">Cession des parts sociales</option>
-                            <option class="red" value="Cession des actions">Cession des actions</option>
-                            <option value="Démission d'un gérant">Démission d'un gérant</option>
-                            <option value="Démission d'un administrateur">Démission d'un administrateur</option>
-                            <option value="Nomination d'un gérant">Nomination d'un gérant</option>
-                            <option value="Nomination d'un administrateur">Nomination d'un administrateur</option>
-                            <option value="Transfert du siège social">Transfert du siège social</option>
-                            <option value="Changement de forme légale">Changement de forme légale</option>
-                        </select>
-                        <label>Objet de l'acte</label>
-                    </div>
-
-                    <div class="input-field  invoice_element">
-                        <input type="text" class="materialize-textarea" id="texte">
-                        <label for="texte">Texte</label>
-                    </div>
-
-                    <div class="input-field  invoice_element">
-                        <input type="text" class="materialize-textarea" id="soussigne">
-                        <label for="soussigne">Nom du soussigné</label>
-                    </div>
-
-                    <div class="input-field  invoice_element">
-                        <input type="text" class="materialize-textarea" id="soussigneP">
-                        <label for="soussigneP">Prénom du soussigné</label>
-                    </div>
-
-                    <div class="input-field invoice_element" style="margin-top: 20px;margin-bottom: 20px;">
-                        <select id="select_agissant_comme">
-                            <option value="" disabled selected>Veuillez choisir</option>
-                            <option value="directeur">Directeur</option>
-                            <option value="gérant">Gérant</option>
-                            <option value="administrateur">Administrateur</option>
-                            <option value="associé">Associé</option>
-                            <option value="membre">Membre</option>
-                            <option value="notaire">Notaire</option>
-                            <option value="mandataire">Mandataire</option>
-                            <option value="liquidateur">Liquidateur</option>
-                        </select>
-                        <label for="select_agissant_comme">Agissant comme</label>
-                    </div>
-
-                    <div class="input-field  invoice_element">
-                        <input type="text" class="materialize-textarea" id="fait_a" placeholder="">
-                        <label for="fait_a">Fait à</label>
-                    </div>
-
-                    <div class="input-field  invoice_element">
-                        <input type="text" class="datepicker" id="date">
-                        <label for="date">Date</label>
-                    </div>
-                </center>
-            </div>
-        </div>
-    </div>
-
-    <div class="row" style="float: right; width: 49%;">
-        <div class="card">
-
-            <div class="card-image" style="background-color: rgba(144,246,202,0.6);
-                        background-image: linear-gradient(62deg, #92f6d7 0%, #71f6d5 100%);
-                        height: 50px;">
-            </div>
-            <div class="card-content">
-                <span class="card-title">Formulaire n° 2</span>
-                <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
-                <center>
-
-                    <div id="ancienGerant" style="visibility: hidden; margin-bottom: 20px;">
-                        <span class="card-title">Ancienne gérance/administration</span>
-                        <div class="input-field">
-                            <input type="text" class="materialize-textarea" id="nom_ancien" style="width: 48%; margin-right: 5px;" placeholder="Nom de l'ancien gérant/admin">
-                            <input type="text" class="materialize-textarea" id="prenom_ancien" style="width: 48%;" placeholder="Prénom de l'ancien gérant/admin">
+    <div class="row">
+        <div class="col" style="width: 30%;">
+            <div class="card">
+                <div class="card-image" style="background-color: rgba(167,213,246,0.6);
+                            background-image: linear-gradient(62deg, #a7d5f6 0%, #a7d5f6 100%);
+                            height: 50px;">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Formulaire n° 1</span>
+                    <center>
+                        <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
+                        <div class="input-field  invoice_element" style="margin-top: 30px;">
+                            <input onchange="setRecherche(value)" type="text" class="materialize-textarea" id="numero_entreprise" placeholder="Ex. : 0123.456.789">
+                            <label for="numero_entreprise">Numéro d'entreprise</label>
                         </div>
-                        <div style="margin-bottom: 20px;">
-                            <button onclick="rechercherAncienGerant()" class="btn-small grey white-text"><i class="material-icons left">format_list_bulleted</i> Rechercher l'ancien gérant/admin</button>
+
+                        <div class="input-field  invoice_element">
+                            <input type="text" class="materialize-textarea" id="nom">
+                            <label for="nom">Nom</label>
                         </div>
-                        <div class="input-field  invoice_element" style="margin-bottom: 20px;">
-                            <p><label><input class='with-gap' name="sexe_gerant_ancien" type='radio' value='Male' checked/><span>Homme</span></label></p>
-                            <p><label><input class='with-gap' name="sexe_gerant_ancien" type='radio' value='Femelle'/><span>Femme</span></label></p>
+
+
+                        <div class="input-field invoice_element" style="margin-top: 20px;margin-bottom: 20px;">
+                            <select id="select_forme_legale">
+                                <option value="" disabled selected>Veuillez choisir</option>
+                                <option value="Société anonyme">(SA) - Société anonyme</option>
+                                <option value="Société à responsabilité limitée">(SRL) - Société à responsabilité limitée</option>
+                                <option value="Société privée à responsabilité limitée">(SPRL) - Société privée à responsabilité limitée</option>
+                                <option value="Société privée à responsabilité limitée starter">(SPRL-S) - Société privée à responsabilité limitée starter</option>
+                                <option value="Société coopérative à responsabilité limitée">(SCRL) - Société coopérative à responsabilité limitée</option>
+                                <option value="Société coopérative à responsabilité illimitée">(SCRI) - Société coopérative à responsabilité illimitée</option>
+                                <option value="Société en nom collectif">(SNC) - Société en nom collectif</option>
+                                <option value="Société en commandite simple">(SCS) - Société en commandite simple</option>
+                                <option value="Société en commandite par actions">(SCA) - Société en commandite par actions</option>
+                                <option value="Association sans but lucratif">(ASBL) - Association sans but lucratif</option>
+                            </select>
+                            <label for="select_forme_legale">Forme légale</label>
                         </div>
+
                         <div class="input-field invoice_element">
-                            <input type="text" class="materialize-textarea" id="registre_national_ancien" placeholder="Ex. : 71.06.08-599.15">
-                            <label for="registre_national_ancien">Numéro de registre national</label>
+                            <input type="text" class="materialize-textarea" id="rue">
+                            <label for="rue">Rue</label>
                         </div>
-                    </div>
-                    <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
 
-                    <div id="nouveauGerant" style="visibility: hidden">
-                        <span class="card-title">Nouvelle gérance/administration</span>
-                        <div class="input-field">
-                            <input type="text" class="materialize-textarea" id="nom_new" style="width: 48%; margin-right: 5px;" placeholder="Nom du nouveau gérant/admin">
-                            <input type="text" class="materialize-textarea" id="prenom_new" style="width: 48%;" placeholder="Prénom du nouveau gérant/admin">
-                        </div>
                         <div class="input-field  invoice_element">
-                            <input type="text" class="materialize-textarea" id="rue_new_gerant" >
-                            <label for="rue_new_gerant">Rue du nouveau gérant/admin</label>
+                            <input type="text" class="materialize-textarea" id="numero_rue">
+                            <label for="numero_rue">N° de rue</label>
                         </div>
-                        <div class="input-field  invoice_element">
-                            <input type="text" class="materialize-textarea" id="numero_new_gerant" >
-                            <label for="numero_new_gerant">Numéro de rue du nouveau gérant/admin</label>
-                        </div>
-                        <div class="input-field  invoice_element">
-                            <input type="text" class="materialize-textarea" id="boite_new_gerant">
-                            <label for="boite_new_gerant">Boite du nouveau gérant/admin</label>
-                        </div>
-                        <div class="input-field  invoice_element">
-                            <input type="text" class="materialize-textarea" id="code_postal_new_gerant" >
-                            <label for="code_postal_new_gerant">Code postal du nouveau gérant/admin</label>
-                        </div>
-                        <div class="input-field  invoice_element">
-                            <input type="text" class="materialize-textarea" id="localite_new_gerant" >
-                            <label for="localite_new_gerant">Localité du nouveau gérant/admin</label>
-                        </div>
-                        <div class="input-field  invoice_element">
-                            <input type="text" class="materialize-textarea" id="pays_new_gerant" value="Belgique">
-                            <label for="pays_new_gerant">Pays du nouveau gérant/admin</label>
-                        </div>
-                        <div class="input-field  invoice_element" style="margin-bottom: 20px;">
-                            <p><label><input class='with-gap' name="sexe_gerant_new" type='radio' value='Male' checked/><span>Homme</span></label></p>
-                            <p><label><input class='with-gap' name="sexe_gerant_new" type='radio' value='Femelle'/><span>Femme</span></label></p>
-                        </div>
-                        <div class="input-field invoice_element">
-                            <input type="text" class="materialize-textarea" id="registre_national_nouveau" placeholder="Ex. : 71.06.08-599.15">
-                            <label for="registre_national_nouveau">Numéro de registre national</label>
-                        </div>
-                    </div>
-                    <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
 
-                    <div id="div_siege_new" style="visibility: hidden; margin-top: 20px;margin-bottom: 20px;">
-                        <span class="card-title">Nouveau siège social</span>
-                        <div class="input-field  invoice_element" style="margin-top: 30px;">
-                            <input type="text" class="materialize-textarea" id="rue_new">
-                            <label for="rue_new">Rue (nouvelle)</label>
+                        <div class="input-field  invoice_element">
+                            <input type="text" class="materialize-textarea" id="boite">
+                            <label for="boite">Boite</label>
                         </div>
-                        <div class="input-field  invoice_element" style="margin-top: 30px;">
-                            <input type="text" class="materialize-textarea" id="numero_new">
-                            <label for="numero_new">N° (nouvelle)</label>
-                        </div>
-                        <div class="input-field  invoice_element" style="margin-top: 30px;">
-                            <input type="text" class="materialize-textarea" id="boite_new">
-                            <label for="boite_new">Boite (nouvelle)</label>
-                        </div>
-                        <div class="input-field  invoice_element" style="margin-top: 30px;">
-                            <input type="text" class="materialize-textarea" id="code_postal_new">
-                            <label for="code_postal_new">Code postal (nouvelle)</label>
-                        </div>
-                        <div class="input-field  invoice_element" style="margin-top: 30px;">
-                            <input type="text" class="materialize-textarea" id="localite_new">
-                            <label for="localite_new">Localité (nouvelle)</label>
-                        </div>
-                        <div class="input-field  invoice_element" style="margin-top: 30px;">
-                            <input type="text" class="materialize-textarea" id="pays_new" value="Belgique">
-                            <label for="pays_new">Pays (nouvelle)</label>
-                        </div>
-                    </div>
-                    <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
 
-                    <div id="div_forme_legale_new" class="input-field invoice_element" style="margin-top: 20px;margin-bottom: 20px; visibility: hidden;">
-                        <span class="card-title">Nouvelle forme légale</span>
-                        <select id="select_forme_legale_new">
-                            <option value="" disabled selected>Veuillez choisir</option>
-                            <option value="Société anonyme">(SA) - Société anonyme</option>
-                            <option value="Société à responsabilité limitée">(SRL) - Société à responsabilité limitée</option>
-                            <option value="Société privée à responsabilité limitée">(SPRL) - Société privée à responsabilité limitée</option>
-                            <option value="Société privée à responsabilité limitée starter">(SPRL-S) - Société privée à responsabilité limitée starter</option>
-                            <option value="Société coopérative à responsabilité limitée">(SCRL) - Société coopérative à responsabilité limitée</option>
-                            <option value="Société coopérative à responsabilité illimitée">(SCRI) - Société coopérative à responsabilité illimitée</option>
-                            <option value="Société en nom collectif">(SNC) - Société en nom collectif</option>
-                            <option value="Société en commandite simple">(SCS) - Société en commandite simple</option>
-                            <option value="Société en commandite par actions">(SCA) - Société en commandite par actions</option>
-                            <option value="Association sans but lucratif">(ASBL) - Association sans but lucratif</option>
-                        </select>
+                        <div class="input-field  invoice_element">
+                            <input type="text" class="materialize-textarea" id="code_postal">
+                            <label for="code_postal">Code postal</label>
+                        </div>
 
-                    </div>
-                </center>
+                        <div class="input-field  invoice_element">
+                            <input onchange="setFaitA(this.value)" type="text" class="materialize-textarea" id="localite">
+                            <label for="localite">Localité</label>
+                        </div>
+
+                        <div class="input-field  invoice_element">
+                            <input type="text" class="materialize-textarea" id="pays" value="Belgique">
+                            <label for="pays">Pays</label>
+                        </div>
+
+                        <div class="input-field invoice_element" style="margin-top: 20px;margin-bottom: 20px;">
+                            <select onchange="checkFormeLegale()" id="select_objet_acte" multiple>
+                                <option value="" disabled>Veuillez choisir</option>
+                                <option value="Cession de parts sociales">Cession des parts sociales</option>
+                                <option class="red" value="Cession des actions">Cession des actions</option>
+                                <option value="Démission d'un gérant">Démission d'un gérant</option>
+                                <option value="Démission d'un administrateur">Démission d'un administrateur</option>
+                                <option value="Nomination d'un gérant">Nomination d'un gérant</option>
+                                <option value="Nomination d'un administrateur">Nomination d'un administrateur</option>
+                                <option value="Transfert du siège social">Transfert du siège social</option>
+                                <option value="Changement de forme légale">Changement de forme légale</option>
+                            </select>
+                            <label>Objet de l'acte</label>
+                        </div>
+
+                        <div class="input-field  invoice_element">
+                            <input type="text" class="materialize-textarea" id="texte">
+                            <label for="texte">Texte</label>
+                        </div>
+
+                        <div class="input-field  invoice_element">
+                            <input type="text" class="materialize-textarea" id="soussigne">
+                            <label for="soussigne">Nom du soussigné</label>
+                        </div>
+
+                        <div class="input-field  invoice_element">
+                            <input type="text" class="materialize-textarea" id="soussigneP">
+                            <label for="soussigneP">Prénom du soussigné</label>
+                        </div>
+
+                        <div class="input-field invoice_element" style="margin-top: 20px;margin-bottom: 20px;">
+                            <select id="select_agissant_comme">
+                                <option value="" disabled selected>Veuillez choisir</option>
+                                <option value="directeur">Directeur</option>
+                                <option value="gérant">Gérant</option>
+                                <option value="administrateur">Administrateur</option>
+                                <option value="associé">Associé</option>
+                                <option value="membre">Membre</option>
+                                <option value="notaire">Notaire</option>
+                                <option value="mandataire">Mandataire</option>
+                                <option value="liquidateur">Liquidateur</option>
+                            </select>
+                            <label for="select_agissant_comme">Agissant comme</label>
+                        </div>
+
+                        <div class="input-field  invoice_element">
+                            <input type="text" class="materialize-textarea" id="fait_a" placeholder="">
+                            <label for="fait_a">Fait à</label>
+                        </div>
+
+                        <div class="input-field  invoice_element">
+                            <input type="text" class="datepicker" id="date">
+                            <label for="date">Date</label>
+                        </div>
+                    </center>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row" style="float: left; width: 49%;">
-        <div class="card">
-            <div class="card-image" style="background-color: rgba(204,117,246,0.6);
-                        background-image: linear-gradient(62deg, #7046f6 0%, #d624f6 100%);
-                        height: 50px;">
-            </div>
-            <div class="card-content">
-                <span class="card-title">Assemblée générale</span>
-                <center>
-                    <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
-                    <p>
-                        <label>
-                            <input class="with-gap" name="asso_actio" type="radio" value="associés" checked/>
-                            <span>Associés (lorsque gérants)</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input class="with-gap" name="asso_actio" type="radio" value="actionnaires"/>
-                            <span>Actionnaires (lorsque administrateurs)</span>
-                        </label>
-                    </p>
-                    <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
 
-                    <div class="input-field invoice_element">
-                        <p style="margin-bottom: 10px;">Nombre de personnes impliquées</p>
-                        <a onclick="ajouterDesPersonnes()" id="nb" class="btn-floating btn-small waves-effect waves-light black"><i class="material-icons">add</i></a>
-                    </div>
-                    <div id="div_nb"></div>
+        <div class="col" style="width: 30%;">
+            <div class="card">
+                <div class="card-image" style="background-color: rgba(144,246,202,0.6);
+                            background-image: linear-gradient(62deg, #92f6d7 0%, #71f6d5 100%);
+                            height: 50px;">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Formulaire n° 2</span>
+                    <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
+                    <center>
 
-                </center>
+                        <div id="ancienGerant" style="visibility: hidden; margin-bottom: 20px;">
+                            <span class="card-title">Ancienne gérance/administration</span>
+                            <div class="input-field">
+                                <input type="text" class="materialize-textarea" id="nom_ancien" style="width: 48%; margin-right: 5px;" placeholder="Nom de l'ancien gérant/admin">
+                                <input type="text" class="materialize-textarea" id="prenom_ancien" style="width: 48%;" placeholder="Prénom de l'ancien gérant/admin">
+                            </div>
+                            <div style="margin-bottom: 20px;">
+                                <button onclick="rechercherAncienGerant()" class="btn-small grey white-text"><i class="material-icons left">format_list_bulleted</i> Rechercher l'ancien gérant/admin</button>
+                            </div>
+                            <div class="input-field  invoice_element" style="margin-bottom: 20px;">
+                                <p><label><input class='with-gap' name="sexe_gerant_ancien" type='radio' value='Male' checked/><span>Homme</span></label></p>
+                                <p><label><input class='with-gap' name="sexe_gerant_ancien" type='radio' value='Femelle'/><span>Femme</span></label></p>
+                            </div>
+                            <div class="input-field invoice_element">
+                                <input type="text" class="materialize-textarea" id="registre_national_ancien" placeholder="Ex. : 71.06.08-599.15">
+                                <label for="registre_national_ancien">Numéro de registre national</label>
+                            </div>
+                        </div>
+                        <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+                        <div id="nouveauGerant" style="visibility: hidden">
+                            <span class="card-title">Nouvelle gérance/administration</span>
+                            <div class="input-field">
+                                <input type="text" class="materialize-textarea" id="nom_new" style="width: 48%; margin-right: 5px;" placeholder="Nom du nouveau gérant/admin">
+                                <input type="text" class="materialize-textarea" id="prenom_new" style="width: 48%;" placeholder="Prénom du nouveau gérant/admin">
+                            </div>
+                            <div class="input-field">
+                                <input type="text" class="materialize-textarea" id="rue_new_gerant" style="width: 60%; margin-right: 5px;" placeholder="Rue du nouveau gérant/admin">
+                                <input type="text" class="materialize-textarea" id="numero_new_gerant" style="width: 25%; margin-right: 5px;" placeholder="Numéro de rue">
+                                <input type="text" class="materialize-textarea" id="boite_new_gerant" style="width: 10%;" placeholder="Boite">
+                            </div>
+                            <div class="input-field">
+                                <input type="text" class="materialize-textarea" id="code_postal_new_gerant" style="width: 30%; margin-right: 7%;" placeholder="Code postal">
+                                <input type="text" class="materialize-textarea" id="localite_new_gerant" style="width: 60%;" placeholder="Localité du nouveau gérant/admin">
+                            </div>
+                            <div class="input-field">
+                                <input type="text" class="materialize-textarea" id="pays_new_gerant" value="Belgique" style="width: 30%; margin-right: 7%;" placeholder="Pays du nouveau gérant/admin">
+                                <input type="text" class="materialize-textarea" id="registre_national_nouveau" style="width: 60%;" placeholder="Numéro de registre national">
+                                <span class="helper-text">Ex. : 71.06.08-599.15</span>
+                            </div>
+                            <div class="input-field  invoice_element" style="margin-bottom: 20px;">
+                                <p><label><input class='with-gap' name="sexe_gerant_new" type='radio' value='Male' checked/><span>Homme</span></label></p>
+                                <p><label><input class='with-gap' name="sexe_gerant_new" type='radio' value='Femelle'/><span>Femme</span></label></p>
+                            </div>
+                        </div>
+                        <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+                        <div id="div_siege_new" style="visibility: hidden; margin-top: 20px;margin-bottom: 20px;">
+                            <span class="card-title">Nouveau siège social</span>
+                            <div class="input-field" style="margin-top: 30px;">
+                                <input type="text" class="materialize-textarea" id="rue_new" style="width: 60%; margin-right: 5px;" placeholder="Rue">
+                                <input type="text" class="materialize-textarea" id="numero_new" style="width: 25%; margin-right: 5px;" placeholder="Numéro de rue">
+                                <input type="text" class="materialize-textarea" id="boite_new" style="width: 10%;" placeholder="Boite">
+                            </div>
+                            <div class="input-field" style="margin-top: 30px;">
+                                <input type="text" class="materialize-textarea" id="code_postal_new" style="width: 30%; margin-right: 7%;" placeholder="Code postal">
+                                <input type="text" class="materialize-textarea" id="localite_new" style="width: 30%; margin-right: 7%;" placeholder="Localité">
+                                <input type="text" class="materialize-textarea" id="pays_new" value="Belgique" style="width: 22%;" placeholder="Pays">
+                            </div>
+                        </div>
+                        <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+                        <div id="div_forme_legale_new" class="input-field invoice_element" style="margin-top: 20px;margin-bottom: 20px; visibility: hidden;">
+                            <span class="card-title">Nouvelle forme légale</span>
+                            <select id="select_forme_legale_new">
+                                <option value="" disabled selected>Veuillez choisir</option>
+                                <option value="Société anonyme">(SA) - Société anonyme</option>
+                                <option value="Société à responsabilité limitée">(SRL) - Société à responsabilité limitée</option>
+                                <option value="Société privée à responsabilité limitée">(SPRL) - Société privée à responsabilité limitée</option>
+                                <option value="Société privée à responsabilité limitée starter">(SPRL-S) - Société privée à responsabilité limitée starter</option>
+                                <option value="Société coopérative à responsabilité limitée">(SCRL) - Société coopérative à responsabilité limitée</option>
+                                <option value="Société coopérative à responsabilité illimitée">(SCRI) - Société coopérative à responsabilité illimitée</option>
+                                <option value="Société en nom collectif">(SNC) - Société en nom collectif</option>
+                                <option value="Société en commandite simple">(SCS) - Société en commandite simple</option>
+                                <option value="Société en commandite par actions">(SCA) - Société en commandite par actions</option>
+                                <option value="Association sans but lucratif">(ASBL) - Association sans but lucratif</option>
+                            </select>
+
+                        </div>
+                    </center>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row" style="float: right;">
-        <div class="card">
-            <div class="card-action">
-                <button onclick="generateForms(false)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">remove_red_eye</i> Prévisualiser les formulaires</button>
-                <button onclick="generateForms(true)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">file_download</i>  Télécharger les formulaires</button>
-                <button onclick="generateAG(false)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">remove_red_eye</i> Prévisualiser l'assemblée générale</button>
-                <button onclick="generateAG(true)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">file_download</i>  Télécharger l'assemblée générale</button>
-                <button onclick="window.open('https://pdf2docx.com/fr/', '_blank')" class="btn-small"><i class="material-icons left">remove_red_eye</i>PDF2DOCX</button>
+
+        <div class="col" style="width: 40%;">
+            <div class="row">
+                <div class="card">
+                    <div class="card-image" style="background-color: rgba(204,117,246,0.6);
+                                background-image: linear-gradient(62deg, #7046f6 0%, #d624f6 100%);
+                                height: 50px;">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Assemblée générale</span>
+                        <center>
+                            <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
+                            <p>
+                                <label>
+                                    <input class="with-gap" name="asso_actio" type="radio" value="associés" checked/>
+                                    <span>Associés (lorsque gérants)</span>
+                                </label>
+                            </p>
+                            <p>
+                                <label>
+                                    <input class="with-gap" name="asso_actio" type="radio" value="actionnaires"/>
+                                    <span>Actionnaires (lorsque administrateurs)</span>
+                                </label>
+                            </p>
+                            <div class="divider" style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+                            <div class="input-field invoice_element">
+                                <p style="margin-bottom: 10px;">Nombre de personnes impliquées</p>
+                                <a onclick="ajouterDesPersonnes()" id="nb" class="btn-floating btn-small waves-effect waves-light black"><i class="material-icons">add</i></a>
+                            </div>
+                            <div id="div_nb"></div>
+
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="card">
+                    <div class="card-action">
+                        <button onclick="generateForms(false)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">remove_red_eye</i> Formulaires</button>
+                        <button onclick="generateForms(true)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">file_download</i>  Formulaires</button>
+                        <button onclick="generateAG(false)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">remove_red_eye</i> Assemblée générale</button>
+                        <button onclick="generateAG(true)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">file_download</i>  Assemblée générale</button>
+                        <button onclick="window.open('https://pdf2docx.com/fr/', '_blank')" class="btn-small" style="margin: 10px;"><i class="material-icons left">remove_red_eye</i>PDF2DOCX</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -433,8 +409,8 @@
         type.innerHTML = "<p><label><input name='nb_"+actualPersonID+"_T' type='radio' value='a'/><span>Ancien</span></label></p>";
         type.innerHTML += "<p><label><input name='nb_"+actualPersonID+"_T' type='radio' value='n'/><span>Nouveau</span></label></p>";
         ancien.innerHTML += "<p><label><input name='nb_"+actualPersonID+"_AG' type='checkbox' value='n'/><span>Ancien gérant</span></label></p>";
-        input3.innerHTML += "<input style='width: 45%' type='number' id='nb_"+actualPersonID+"_TotParts' class='right-align' placeholder='Parts possédés'>";
-        cession.innerHTML += "<a onclick=\"ajouterDesCessions("+actualPersonID+")\" class=\"btn-floating waves-effect waves-light blue\" style='width: 60%; border-radius: 0; margin-top: 5px;margin-bottom: 5px;'> Ajouter une cession<i class=\"material-icons\">add</i></a><div id='nb_"+actualPersonID+"_Cession'></div>";
+        input3.innerHTML += "<input style='width: 25%' type='number' id='nb_"+actualPersonID+"_TotParts' class='right-align' placeholder='Parts possédés'>";
+        cession.innerHTML += "<a onclick=\"ajouterDesCessions("+actualPersonID+")\" class=\"btn-small waves-effect waves-light blue\" style='margin-top: 5px;margin-bottom: 5px;'><i class=\"material-icons\">add</i></a><div id='nb_"+actualPersonID+"_Cession'></div>";
         remove.innerHTML += "<a class='btn-floating btn-small waves-effect waves-light red' onclick='removeElement("+node+")' ><i class='material-icons'>remove</i></a>";
 
         div.appendChild(input1);
@@ -478,7 +454,7 @@
         var input2 = document.createElement('input2');
         var sexe = document.createElement('radio');
         var parts = document.createElement('input3');
-        var remove = document.createElement('removee');
+        // var remove = document.createElement('removee');
         div.setAttribute('class', "input-field invoice_element card");
         div.setAttribute('id', node);
         div.setAttribute('style', 'padding: 10px; width: 80%;');
@@ -488,13 +464,13 @@
         sexe.innerHTML = "<p><label><input class='with-gap' name='sexe_"+node+"' type='radio' value='Monsieur' checked/><span>Homme</span> </label></p>";
         sexe.innerHTML += "<p><label><input class='with-gap' name='sexe_"+node+"' type='radio' value='Madame'/><span>Femme</span> </label></p>";
         parts.innerHTML = "<input type='number' placeholder='Parts attribués'>";
-        remove.innerHTML += "<a class='btn-floating btn-small waves-effect waves-light blue' onclick='removeParts("+node+", "+person+")' ><i class='material-icons'>remove</i></a>";
+        // remove.innerHTML += "<a class='btn-floating btn-small waves-effect waves-light blue' onclick='removeParts("+node+", "+person+")' ><i class='material-icons'>remove</i></a>";
 
         div.appendChild(input1);
         div.appendChild(input2);
         div.appendChild(sexe);
         div.appendChild(parts);
-        div.appendChild(remove);
+        // div.appendChild(remove);
         document.getElementById("cess_de_"+person+"").appendChild(div);
         cessionID[person]++;
     }
