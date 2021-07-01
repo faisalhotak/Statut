@@ -828,10 +828,8 @@ function getNbResolution(){
 }
 
 function getTypeDividende(){
-    var asso_actioListe = document.getElementsByName('asso_actio');
-    if (asso_actioListe[0].checked) return "parts sociales";
-    if (asso_actioListe[1].checked) return "actions";
-    return "";
+    if ($('#select_objet_acte').val().indexOf('Transfert des parts sociales') >= 0 || $('#select_objet_acte').val().indexOf("Démission d'un gérant") >= 0 || $('#select_objet_acte').val().indexOf("Nomination d'un gérant") >= 0) return 'parts sociales';
+    if ($('#select_objet_acte').val().indexOf('Transfert des actions') >= 0 || $('#select_objet_acte').val().indexOf("Démission d'un administrateur") >= 0 || $('#select_objet_acte').val().indexOf("Nomination d'un administrateur") >= 0) return 'actions';
 }
 
 function getReuni(liste){
@@ -863,9 +861,8 @@ function demission(){
 
     var personne = sexe + " " + nom.toUpperCase() + " " + (prenom.charAt(0).toUpperCase() + prenom.substring(1));
 
-    var asso_actioListe = document.getElementsByName('asso_actio');
-    if (asso_actioListe[0].checked) return personne + " démissionne de son poste de gérant. Décharge-lui est donnée quant à la durée de son mandat.";
-    if (asso_actioListe[1].checked) return personne + " démissionne de son poste d'administrateur. Décharge-lui est donnée quant à la durée de son mandat.";
+    if ($('#select_objet_acte').val().indexOf("Démission d'un gérant") >= 0) return personne + " démissionne de son poste de gérant. Décharge-lui est donnée quant à la durée de son mandat.";
+    if ($('#select_objet_acte').val().indexOf("Démission d'un administrateur") >= 0) return personne + " démissionne de son poste d'administrateur. Décharge-lui est donnée quant à la durée de son mandat.";
 }
 
 function nomination(){
@@ -889,9 +886,8 @@ function nomination(){
 
     var adresse = rue + " " + numero + " " + boite + " - " + code_postal + " " + localite;
 
-    var asso_actioListe = document.getElementsByName('asso_actio');
-    if (asso_actioListe[0].checked) return personne + " domicilié à " + adresse + " est nommé gérant pour une durée indéterminée.";
-    if (asso_actioListe[1].checked) return personne + " domicilié à " + adresse + " est nommé administrateur pour une durée indéterminée.";
+    if ($('#select_objet_acte').val().indexOf("Nomination d'un gérant") >= 0) return personne + " domicilié à " + adresse + " est nommé gérant pour une durée indéterminée.";
+    if ($('#select_objet_acte').val().indexOf("Nomination d'un administrateur") >= 0) return personne + " domicilié à " + adresse + " est nommé administrateur pour une durée indéterminée.";
 }
 
 function changement(){
