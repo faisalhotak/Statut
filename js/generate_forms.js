@@ -363,13 +363,13 @@ function setPage2Inputs(doc, data){
         y_pos += 5;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
             var temp = $('#select_objet_acte').val();
-            if (temp[4].includes('Cession')) {
+            if (temp[4].includes('Transfert des')) {
                 addText2(doc, x_pos, y_pos, cession());
                 for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
             if (temp[4].includes('Démission')) addText2(doc, x_pos, y_pos, demission());
             if (temp[4].includes('Nomination')) addText2(doc, x_pos, y_pos, nomination());
-            if (temp[4].includes('Transfert')) addText2(doc, x_pos, y_pos, transfert());
+            if (temp[4].includes('Transfert du siège social')) addText2(doc, x_pos, y_pos, transfert());
             if (temp[4].includes('Changement')) addText2(doc, x_pos, y_pos, changement());
         }
         y_pos += 10;
