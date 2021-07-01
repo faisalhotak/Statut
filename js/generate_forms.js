@@ -412,13 +412,17 @@ function setPage2Inputs(doc, data){
         }
     };
 
-    if($('#select_objet_acte').val().indexOf('Cession de parts sociales') >= 0 || $('#select_objet_acte').val().indexOf('Cession des actions') >= 0)
+    if($('#select_objet_acte').val().indexOf('Transfert des parts sociales') >= 0 || $('#select_objet_acte').val().indexOf('Transfert des actions') >= 0)
     {
         nouvelleRepartition();
     }
 
+    var typeSignataire = '';
+    if ($('#select_objet_acte').val().indexOf("Nomination d'un administrateur") >= 0) typeSignataire = 'Administrateur';
+    if ($('#select_objet_acte').val().indexOf("Nomination d'un gérant") >= 0) typeSignataire = 'Gérant';
+
     y_pos += 10;
-    addText(doc, x_pos+10, y_pos, "Gérant");
+    addText(doc, x_pos+5, y_pos, typeSignataire);
     y_pos += 5;
     var nom = document.getElementById('nom_new').value.toUpperCase() + " " + (document.getElementById('prenom_new').value.charAt(0).toUpperCase() + document.getElementById('prenom_new').value).substring(1);
     addText(doc, x_pos, y_pos, nom);
