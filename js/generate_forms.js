@@ -800,34 +800,6 @@ function addText2(doc, x_pos, y_pos, texte){
     doc.text(texte, x_pos, y_pos, {maxWidth: 150, align: "justify"});
 }
 
-function textePresence(){
-    var liste = document.getElementById('div_nb');
-
-    if (liste.childElementCount > 0) {
-        var masculin = 0;
-        var feminin = 0;
-        for (var i = 0; i < liste.childElementCount; i++)
-        {
-            var id = liste.getElementsByTagName('div')[0].id;
-            id = id.substring(5);
-            var id_ancien = document.getElementsByName('nb_'+ id +'_T');
-            if (id_ancien[0].checked)
-            {
-                var id_sexe = document.getElementsByName('nb_' + id + '_S');
-                if (id_sexe[0].checked) masculin++;
-                if (id_sexe[1].checked) feminin++;
-            }
-        }
-
-        if (masculin === 1 && feminin === 0) return "EST PRESENT";
-        if (masculin === 1) return "SONT PRESENTS";
-        if (masculin > 1) return "SONT PRESENTS";
-        if (feminin === 1 && masculin === 0) return "EST PRESENTE";
-        if (feminin > 1 && masculin === 0) return "SONT PRESENTES";
-        }
-    return "";
-}
-
 function getPresident(liste){
 
     if (liste.childElementCount > 0){
