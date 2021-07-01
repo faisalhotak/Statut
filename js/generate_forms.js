@@ -1067,10 +1067,8 @@ function calculerLesParts(){
 
 function getDateLettrer(){
     var date = document.getElementById('date').value;
-    var asso_actioListe = document.getElementsByName('asso_actio');
-    var asso_actio = "";
-    if (asso_actioListe[0].checked) asso_actio = asso_actioListe[0].value;
-    if (asso_actioListe[1].checked) asso_actio = asso_actioListe[1].value;
+    var asso_actio = getTypeOfPersons();
+
     return "L'an " + NumberToLetter(date.substring(6)) + ", le" + " " + date.slice(0, -8) + " " + trouverLeMois(date.slice(3, -5)) + " " + "à 18 heures s'est réuni ainsi qu'il suit, l'assemblée générale extraordinaire des" + " " + asso_actio + ".";
 }
 
@@ -1141,4 +1139,14 @@ function getListeDesCessionnairesSansParts(){
         }
     }
     return listeDesPersonnes;
+}
+
+function getTypeOfPersons() {
+    if ($('#select_objet_acte').val().indexOf('Transfert des parts sociales') >= 0) return 'associés';
+    if ($('#select_objet_acte').val().indexOf('Transfert des actions') >= 0) return 'actionnaires';
+}
+
+function getTypeOfPerson() {
+    if ($('#select_objet_acte').val().indexOf('Transfert des parts sociales') >= 0) return 'Gérant';
+    if ($('#select_objet_acte').val().indexOf('Transfert des actions') >= 0) return 'Administrateur';
 }
