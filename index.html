@@ -395,19 +395,19 @@
         sexe.innerHTML = "<p><label><input class='with-gap' name='nb_"+actualPersonID+"_S' type='radio' value='Monsieur' checked/><span>Homme</span> </label></p>";
         sexe.innerHTML += "<p><label><input class='with-gap' name='nb_"+actualPersonID+"_S' type='radio' value='Madame'/><span>Femme</span> </label></p>";
         president.innerHTML += "<p><label><input name='president' type='checkbox'/><span>Préside la séance</span></label></p>";
-        type.innerHTML = "<p><label><input name='nb_"+actualPersonID+"_T' type='radio' value='a'/><span>Ancien</span></label></p>";
-        type.innerHTML += "<p><label><input name='nb_"+actualPersonID+"_T' type='radio' value='n'/><span>Nouveau</span></label></p>";
         ancien.innerHTML += "<p><label><input name='nb_"+actualPersonID+"_AG' type='checkbox' value='n'/><span>Ancien gérant</span></label></p>";
+        type.innerHTML = "<p><label><input name='nb_"+actualPersonID+"_T' type='radio' value='a' checked/><span>Ancien</span></label></p>";
+        type.innerHTML += "<p><label><input name='nb_"+actualPersonID+"_T' type='radio' value='n'/><span>Nouveau</span></label></p>";
         input3.innerHTML += "<input style='width: 25%' type='number' id='nb_"+actualPersonID+"_TotParts' class='right-align' placeholder='Parts possédés'>";
-        cession.innerHTML += "<a onclick=\"ajouterDesCessions("+actualPersonID+")\" class=\"btn-small waves-effect waves-light blue\" style='margin-top: 5px;margin-bottom: 5px;'><i class=\"material-icons\">add</i></a><div id='nb_"+actualPersonID+"_Cession'></div>";
+        cession.innerHTML += "<a onclick=\"ajouterDesCessions("+actualPersonID+")\" class=\"btn-small waves-effect waves-light blue\" style='margin-top: 5px;margin-bottom: 5px;'>Transfert</a><div id='nb_"+actualPersonID+"_Cession'></div>";
         remove.innerHTML += "<a class='btn-floating btn-small waves-effect waves-light red' onclick='removeElement("+node+")' ><i class='material-icons'>remove</i></a>";
 
         div.appendChild(input1);
         div.appendChild(input2);
         div.appendChild(sexe);
         div.appendChild(president);
-        div.appendChild(type);
         div.appendChild(ancien);
+        div.appendChild(type);
         div.appendChild(cession);
         div.appendChild(input3);
         div.appendChild(remove);
