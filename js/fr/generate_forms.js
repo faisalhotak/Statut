@@ -10,19 +10,19 @@ function generateForms(save_to_device) {
     var images = [];
 
     images[0] = new Image();
-    images[0].src = 'img/1bis.png';
+    images[0].src = '../img/fr/1bis.png';
 
     images[1] = new Image();
-    images[1].src = 'img/2bis.png';
+    images[1].src = '../img/fr/2bis.png';
 
     images[2] = new Image();
-    images[2].src = 'img/3bis.png';
+    images[2].src = '../img/fr/3bis.png';
 
     images[3] = new Image();
-    images[3].src = 'img/4bis.png';
+    images[3].src = '../img/fr/4bis.png';
 
     images[4] = new Image();
-    images[4].src = 'img/5bis.png';
+    images[4].src = '../img/fr/5bis.png';
 
     var imageCount = 5;
     var imagesLoaded = 0;
@@ -71,25 +71,7 @@ function ecriture(doc, data, images, save_to_device) {
         window.open(doc.output('bloburl'));
     }
 }
-
-function financial(x) {
-    return Number.parseFloat(x).toFixed(2);
-}
-
-function round2Decimals(x){
-    return Math.round((x + 0.00001) * 100.00) / 100.00;
-}
-
-function generatePageNumbers(doc){
-    var pageSize = doc.internal.pageSize;
-    var pageHeight = pageSize.height ? pageSize.height : pageSize.getHeight();
-    var pageCount = doc.internal.getNumberOfPages();
-    doc.setFontSize(8);
-    for(var i=0; i < pageCount; i++){
-        doc.setPage(i);
-        doc.text(doc.internal.getCurrentPageInfo().pageNumber + "/" + pageCount, 200, pageHeight - 8, {align: 'right'});
-    }
-}
+//
 
 function getFormulaire1Inputs(){
 
@@ -1150,3 +1132,23 @@ function getTypeOfPerson() {
     if ($('#select_objet_acte').val().indexOf('Transfert des parts sociales') >= 0) return 'Gérant';
     if ($('#select_objet_acte').val().indexOf('Transfert des actions') >= 0) return 'Administrateur';
 }
+
+
+// function financial(x) {
+//     return Number.parseFloat(x).toFixed(2);
+// }
+//
+// function round2Decimals(x){
+//     return Math.round((x + 0.00001) * 100.00) / 100.00;
+// }
+//
+// function generatePageNumbers(doc){
+//     var pageSize = doc.internal.pageSize;
+//     var pageHeight = pageSize.height ? pageSize.height : pageSize.getHeight();
+//     var pageCount = doc.internal.getNumberOfPages();
+//     doc.setFontSize(8);
+//     for(var i=0; i < pageCount; i++){
+//         doc.setPage(i);
+//         doc.text(doc.internal.getCurrentPageInfo().pageNumber + "/" + pageCount, 200, pageHeight - 8, {align: 'right'});
+//     }
+// }
