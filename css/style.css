@@ -49,3 +49,8 @@ img {
 .leftm75 {
     margin-left: 75px;
 }
+
+.huge {
+    font-size: 2rem !important;
+    text-align: center !important;
+}
