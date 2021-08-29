@@ -1127,11 +1127,19 @@ function getListeDesCessionnairesSansParts(){
 }
 
 function getTypeOfPersons() {
-    if ($('#select_objet_acte').val().indexOf('Transfert des parts sociales') >= 0) return 'associés';
-    if ($('#select_objet_acte').val().indexOf('Transfert des actions') >= 0) return 'actionnaires';
+    if ($('#select_objet_acte').val().indexOf('Nomination d\'un gérant') >= 0) return 'vennoten';
+    if ($('#select_objet_acte').val().indexOf('Nomination d\'un administrateur') >= 0) return 'aandeelhouders';
+    if ($('#select_objet_acte').val().indexOf('Démission d\'un gérant') >= 0) return 'vennoten';
+    if ($('#select_objet_acte').val().indexOf('Démission d\'un administrateur') >= 0) return 'aandeelhouders';
+    if ($('#select_objet_acte').val().indexOf('Transfert des parts sociales') >= 0) return 'vennoten';
+    if ($('#select_objet_acte').val().indexOf('Transfert des actions') >= 0) return 'aandeelhouders';
 }
 
 function getTypeOfPerson() {
+    if ($('#select_objet_acte').val().indexOf('Nomination d\'un gérant') >= 0) return 'Zaakvoerder';
+    if ($('#select_objet_acte').val().indexOf('Nomination d\'un administrateur') >= 0) return 'Bestuurder';
+    if ($('#select_objet_acte').val().indexOf('Démission d\'un gérant') >= 0) return 'Zaakvoerder';
+    if ($('#select_objet_acte').val().indexOf('Démission d\'un administrateur') >= 0) return 'Bestuurder';
     if ($('#select_objet_acte').val().indexOf('Transfert des parts sociales') >= 0) return 'Zaakvoerder';
     if ($('#select_objet_acte').val().indexOf('Transfert des actions') >= 0) return 'Bestuurder';
 }

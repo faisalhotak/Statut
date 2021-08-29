@@ -5,7 +5,7 @@
     <title>Formulaire du moniteur belge</title>
     <script src="../js/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <link rel="icon" type="image/png" href="../img/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="../css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -151,11 +151,11 @@
                                 <option value="directeur">Directeur</option>
                                 <option value="zaakvoerder">Gérant</option>
                                 <option value="bestuurder">Administrateur</option>
-                                <option value="associé">Associé</option>
-                                <option value="membre">Membre</option>
-                                <option value="notaire">Notaire</option>
-                                <option value="mandataire">Mandataire</option>
-                                <option value="liquidateur">Liquidateur</option>
+                                <option value="vennooten">Associé</option>
+                                <option value="lid">Membre</option>
+                                <option value="notaris">Notaire</option>
+                                <option value="lasthebber">Mandataire</option>
+                                <option value="vereffenaar">Liquidateur</option>
                             </select>
                             <label for="select_agissant_comme">Agissant comme</label>
                         </div>
@@ -296,11 +296,21 @@
             <div class="row">
                 <div class="card">
                     <div class="card-action">
+                        <h4>Formulaires</h4>
                         <button onclick="generateForms(false)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">remove_red_eye</i> Formulaires</button>
                         <button onclick="generateForms(true)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">file_download</i>  Formulaires</button>
+                        <!--                        <button onclick="window.open('https://pdf2docx.com/fr/', '_blank')" class="btn-small" style="margin: 10px;"><i class="material-icons left">remove_red_eye</i>PDF2DOCX</button>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="card">
+                    <div class="card-action">
+                        <h4>Assemblée générale</h4>
                         <button onclick="generateAG(false)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">remove_red_eye</i> Assemblée générale</button>
                         <button onclick="generateAG(true)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">file_download</i>  Assemblée générale</button>
-                        <button onclick="window.open('https://pdf2docx.com/fr/', '_blank')" class="btn-small" style="margin: 10px;"><i class="material-icons left">remove_red_eye</i>PDF2DOCX</button>
+                        <!--                        <button onclick="window.open('https://pdf2docx.com/fr/', '_blank')" class="btn-small" style="margin: 10px;"><i class="material-icons left">remove_red_eye</i>PDF2DOCX</button>-->
                     </div>
                 </div>
             </div>

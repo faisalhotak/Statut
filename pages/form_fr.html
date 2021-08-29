@@ -5,7 +5,7 @@
     <title>Formulaire du moniteur belge</title>
     <script src="../js/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <link rel="icon" type="image/png" href="../img/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="../css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -117,7 +117,7 @@
                         </div>
 
                         <div class="input-field invoice_element" style="margin-top: 20px;margin-bottom: 20px;">
-                            <select onchange="checkFormeLegale()" id="select_objet_acte" multiple>
+                            <select onchange="displayForm2Section()" id="select_objet_acte" multiple>
                                 <option value="" disabled>Veuillez choisir</option>
                                 <option value="Nomination d'un gérant">Nomination d'un gérant</option>
                                 <option value="Nomination d'un administrateur">Nomination d'un administrateur</option>
@@ -297,11 +297,21 @@
             <div class="row">
                 <div class="card">
                     <div class="card-action">
+                        <h4>Formulaires</h4>
                         <button onclick="generateForms(false)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">remove_red_eye</i> Formulaires</button>
                         <button onclick="generateForms(true)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">file_download</i>  Formulaires</button>
+<!--                        <button onclick="window.open('https://pdf2docx.com/fr/', '_blank')" class="btn-small" style="margin: 10px;"><i class="material-icons left">remove_red_eye</i>PDF2DOCX</button>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="card">
+                    <div class="card-action">
+                        <h4>Assemblée générale</h4>
                         <button onclick="generateAG(false)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">remove_red_eye</i> Assemblée générale</button>
                         <button onclick="generateAG(true)" class="btn-small" style="margin: 10px 10px 10px 10px"><i class="material-icons left">file_download</i>  Assemblée générale</button>
-                        <button onclick="window.open('https://pdf2docx.com/fr/', '_blank')" class="btn-small" style="margin: 10px;"><i class="material-icons left">remove_red_eye</i>PDF2DOCX</button>
+<!--                        <button onclick="window.open('https://pdf2docx.com/fr/', '_blank')" class="btn-small" style="margin: 10px;"><i class="material-icons left">remove_red_eye</i>PDF2DOCX</button>-->
                     </div>
                 </div>
             </div>
@@ -331,12 +341,12 @@
     let language = 'fr';
     setLanguage(language);
 
-    var personID = 0;
-    var cessionID = [];
+    let personID = 0;
+    let cessionID = [];
 
     document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems, {});
+        let elems = document.querySelectorAll('.sidenav');
+        let instances = M.Sidenav.init(elems, {});
     });
 
     $(document).ready(function(){
@@ -380,8 +390,8 @@
         document.getElementById('fait_a').value = text;
     }
 
-    function checkFormeLegale() {
-        var liste = $('#select_objet_acte').val();
+    function displayForm2Section() {
+        let liste = $('#select_objet_acte').val();
         if(liste.indexOf('Changement de forme légale') >= 0){
 
             document.getElementById('div_forme_legale_new').style.visibility = 'initial';
@@ -415,19 +425,19 @@
     }
 
     function ajouterDesPersonnes(){
-        var node = "node_" + personID;
-        var actualPersonID = personID;
-        var div = document.createElement('div');
-        var input1 = document.createElement('input1');
-        var input2 = document.createElement('input2');
-        var input3 = document.createElement('input3');
-        var sexe = document.createElement('radio');
-        var president = document.createElement('radio');
-        var type = document.createElement('radio');
-        var ancien = document.createElement('radio');
-        var cession = document.createElement('check');
-        var remove = document.createElement('p');
-        var cessions = document.createElement('div');
+        let node = "node_" + personID;
+        let actualPersonID = personID;
+        let div = document.createElement('div');
+        let input1 = document.createElement('input1');
+        let input2 = document.createElement('input2');
+        let input3 = document.createElement('input3');
+        let sexe = document.createElement('radio');
+        let president = document.createElement('radio');
+        let type = document.createElement('radio');
+        let ancien = document.createElement('radio');
+        let cession = document.createElement('check');
+        let remove = document.createElement('p');
+        let cessions = document.createElement('div');
         div.setAttribute('class', "input-field invoice_element card");
         div.setAttribute('id', node);
         div.setAttribute('style', 'padding: 10px;');
@@ -469,23 +479,23 @@
     }
 
     function rechercheStatut(){
-        var num = document.getElementById('num_bce').value;
+        let num = document.getElementById('num_bce').value;
         window.open("http://www.ejustice.just.fgov.be/cgi_tsv/tsv_rech.pl?language=fr&btw=" + num + "&liste=Liste", '_blank');
     }
 
     function rechercheBCE(){
-        var num = document.getElementById('num_bce').value;
+        let num = document.getElementById('num_bce').value;
         window.open("https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?lang=fr&nummer=" + num + "&actionLu=Zoek", '_blank');
     }
 
     function ajouterDesCessions(person){
-        var node = "cession_" + cessionID[person] + "_de_" + person;
-        var div = document.createElement('div');
-        var input1 = document.createElement('input1');
-        var input2 = document.createElement('input2');
-        var sexe = document.createElement('radio');
-        var parts = document.createElement('input3');
-        // var remove = document.createElement('removee');
+        let node = "cession_" + cessionID[person] + "_de_" + person;
+        let div = document.createElement('div');
+        let input1 = document.createElement('input1');
+        let input2 = document.createElement('input2');
+        let sexe = document.createElement('radio');
+        let parts = document.createElement('input3');
+        // let remove = document.createElement('removee');
         div.setAttribute('class', "input-field invoice_element card");
         div.setAttribute('id', node);
         div.setAttribute('style', 'padding: 10px; width: 80%;');
@@ -507,22 +517,22 @@
     }
 
     function removeParts(id, parentId){
-        var idParent = 'cess_de_'+parentId;
+        let idParent = 'cess_de_'+parentId;
         let parent = document.getElementById(idParent);
         parent.removeChild(id);
     }
 
     function rechercherAncienGerant() {
-        var trouver = false;
-        for(var i=0; i<document.getElementById('div_nb').childElementCount; i++){
-            var id_type = document.getElementsByName('nb_'+i+'_AG');
+        let trouver = false;
+        for(let i=0; i<document.getElementById('div_nb').childElementCount; i++){
+            let id_type = document.getElementsByName('nb_'+i+'_AG');
             if (id_type[0].checked) {
                 document.getElementById('nom_ancien').value = document.getElementById('nb_'+i+'_N').value;
                 document.getElementById('prenom_ancien').value = document.getElementById('nb_'+i+'_P').value;
 
-                var male = false;
-                var femelle = false;
-                var id_sexe_rechercher = document.getElementsByName('nb_'+i+'_S');
+                let male = false;
+                let femelle = false;
+                let id_sexe_rechercher = document.getElementsByName('nb_'+i+'_S');
                 if (id_sexe_rechercher[0].checked) male = true;
                 if (id_sexe_rechercher[1].checked) femelle = true;
 
