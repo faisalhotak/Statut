@@ -1,14 +1,14 @@
 function generateAG(save_to_device) {
 
-    var doc = new jsPDF();
-    var data = getFormulaire1Inputs();
+    let doc = new jsPDF();
+    let data = getFormulaire1Inputs();
 
     setPage1AG(doc, data, 25, 34);
     doc.addPage();
     setPage2AG(doc, data, 25, 34);
 
     if (save_to_device) {
-        var nom_document = "ASSEMBLEE_GENERALE.pdf";
+        let nom_document = "ASSEMBLEE_GENERALE.pdf";
         doc.save(nom_document);
     }
     else {
@@ -18,63 +18,63 @@ function generateAG(save_to_device) {
 
 function setPage1AG(doc, data, x_pos, y_pos){
 
-    var numero_entreprise = data[0];
-    var nom = data[1];
-    var forme_legale = data[2];
-    var rue = data[3];
-    var numero_rue = data[4];
-    var boite = data[5];
-    var code_postal = data[6];
-    var localite = data[7];
-    var pays = data[8];
+    let numero_entreprise = data[0];
+    let nom = data[1];
+    let forme_legale = data[2];
+    let rue = data[3];
+    let numero_rue = data[4];
+    let boite = data[5];
+    let code_postal = data[6];
+    let localite = data[7];
+    let pays = data[8];
 
     if (boite !== "") boite = "Bte " + boite;
 
-    var texte = data[10];
-    var soussigne = data[11];
-    var soussigneP = data[12];
-    var agissant_comme = data[13];
-    var fait_a = data[14];
-    var date = data[15];
-    var forme_legale_new = data[16];
-    var rue_new = data[17];
-    var numero_new = data[18];
-    var boite_new = data[19];
-    var code_postal_new = data[20];
-    var localite_new = data[21];
-    var pays_new = data[22];
+    let texte = data[10];
+    let soussigne = data[11];
+    let soussigneP = data[12];
+    let agissant_comme = data[13];
+    let fait_a = data[14];
+    let date = data[15];
+    let forme_legale_new = data[16];
+    let rue_new = data[17];
+    let numero_new = data[18];
+    let boite_new = data[19];
+    let code_postal_new = data[20];
+    let localite_new = data[21];
+    let pays_new = data[22];
 
-    var asso_actio = getTypeOfPersons();
+    let asso_actio = getTypeOfPersons();
 
-    var personnesArray = [];
-    var personnesArraySansSexe = [];
-    var anciens = [];
-    var nouveaux = [];
+    let personnesArray = [];
+    let personnesArraySansSexe = [];
+    let anciens = [];
+    let nouveaux = [];
 
-    var liste = document.getElementById('div_nb');
+    let liste = document.getElementById('div_nb');
     if (liste.childNodes.length > 0){
 
-        for (var i=0; i < liste.childNodes.length ; i++){
-            var id = liste.getElementsByTagName('div')[0].id;
+        for (let i=0; i < liste.childNodes.length ; i++){
+            let id = liste.getElementsByTagName('div')[0].id;
             id = id.substring(5);
-            var id_nom = 'nb_' + id + "_N";
-            var id_prenom = 'nb_' + id + "_P";
-            var id_sexe = document.getElementsByName('nb_'+id+'_S');
-            var sexe = "";
+            let id_nom = 'nb_' + id + "_N";
+            let id_prenom = 'nb_' + id + "_P";
+            let id_sexe = document.getElementsByName('nb_'+id+'_S');
+            let sexe = "";
             if (id_sexe[0].checked) sexe = id_sexe[0].value;
             if (id_sexe[1].checked) sexe = id_sexe[1].value;
             personnesArray[i] = sexe + " " + (document.getElementById(id_nom).value).toUpperCase() + " " + ((document.getElementById(id_prenom).value).charAt(0).toUpperCase() + (document.getElementById(id_prenom).value).substring(1));
             personnesArraySansSexe[i] = (document.getElementById(id_nom).value).toUpperCase() + " " + ((document.getElementById(id_prenom).value).charAt(0).toUpperCase() + (document.getElementById(id_prenom).value).substring(1));
-            var ancien = "";
-            var id_type = document.getElementsByName('nb_'+id+'_T');
+            let ancien = "";
+            let id_type = document.getElementsByName('nb_'+id+'_T');
             // if (id_type[0].checked) anciens[i] = sexe + " " + (document.getElementById(id_nom).value).toUpperCase() + " " + ((document.getElementById(id_prenom).value).charAt(0).toUpperCase() + (document.getElementById(id_prenom).value).substring(1));
             // if (id_type[1].checked) nouveaux[i] = sexe + " " + (document.getElementById(id_nom).value).toUpperCase() + " " + ((document.getElementById(id_prenom).value).charAt(0).toUpperCase() + (document.getElementById(id_prenom).value).substring(1));
         }
     }
 
-    var listage = getListeDesCessionnaires();
+    let listage = getListeDesCessionnaires();
     if(listage.length > 0){
-        for (var i=0; i < listage.length; i++){
+        for (let i=0; i < listage.length; i++){
             if (listage[i].type === 'Ancien') {
                 anciens.push(listage[i].titreCessionnaire + " " + listage[i].nomCessionnaire) ;
             }
@@ -84,11 +84,11 @@ function setPage1AG(doc, data, x_pos, y_pos){
         }
     }
 
-    var objet_acte = [];
+    let objet_acte = [];
     if ($('#select_objet_acte').val() !== "" && $('#select_objet_acte').val() !== null){
-        var objet_acte_length = $('#select_objet_acte').val().length;
-        var temp = $('#select_objet_acte').val();
-        for (var i=0; i < temp.length; i++){
+        let objet_acte_length = $('#select_objet_acte').val().length;
+        let temp = $('#select_objet_acte').val();
+        for (let i=0; i < temp.length; i++){
             objet_acte[i] = "-    " + temp[i];
         }
     }
@@ -145,7 +145,7 @@ function setPage1AG(doc, data, x_pos, y_pos){
 
     x_pos -= 40;
     y_pos += 10;
-    for (var i=0; i < objet_acte.length; i++){
+    for (let i=0; i < objet_acte.length; i++){
         addText(doc, x_pos, y_pos, objet_acte[i]);
         y_pos += 5;
     }
@@ -168,45 +168,45 @@ function setPage2AG(doc, data, x_pos, y_pos){
     doc.setFont('Times');
     doc.setFontSize(12);
 
-    var numero_entreprise = data[0];
-    var nom = data[1];
-    var forme_legale = data[2];
-    var rue = data[3];
-    var numero_rue = data[4];
-    var boite = data[5];
-    var code_postal = data[6];
-    var localite = data[7];
-    var pays = data[8];
+    let numero_entreprise = data[0];
+    let nom = data[1];
+    let forme_legale = data[2];
+    let rue = data[3];
+    let numero_rue = data[4];
+    let boite = data[5];
+    let code_postal = data[6];
+    let localite = data[7];
+    let pays = data[8];
 
     if (boite !== "") boite = "Bte " + boite;
 
-    var texte = data[10];
-    var soussigne = data[11];
-    var soussigneP = data[12];
-    var agissant_comme = data[13];
-    var fait_a = data[14];
-    var date = data[15];
-    var forme_legale_new = data[16];
-    var rue_new = data[17];
-    var numero_new = data[18];
-    var boite_new = data[19];
-    var code_postal_new = data[20];
-    var localite_new = data[21];
-    var pays_new = data[22];
+    let texte = data[10];
+    let soussigne = data[11];
+    let soussigneP = data[12];
+    let agissant_comme = data[13];
+    let fait_a = data[14];
+    let date = data[15];
+    let forme_legale_new = data[16];
+    let rue_new = data[17];
+    let numero_new = data[18];
+    let boite_new = data[19];
+    let code_postal_new = data[20];
+    let localite_new = data[21];
+    let pays_new = data[22];
 
-    var asso_actio = getTypeOfPersons();
+    let asso_actio = getTypeOfPersons();
 
-    var liste = document.getElementById('div_nb');
-    var listeDesPersonnes = [];
-    var listeDesConcessionnaires = [];
-    var listeDesNouveauxGerants = [];
+    let liste = document.getElementById('div_nb');
+    let listeDesPersonnes = [];
+    let listeDesConcessionnaires = [];
+    let listeDesNouveauxGerants = [];
 
     if (liste.childElementCount > 0){
-        for (var i=0; i < liste.childElementCount ; i++){
-            var id = liste.getElementsByTagName('div')[0].id;
+        for (let i=0; i < liste.childElementCount ; i++){
+            let id = liste.getElementsByTagName('div')[0].id;
             id = id.substring(5);
-            var choix_sexe = document.getElementsByName('nb_'+id+'_S');
-            var sexe ="";
+            let choix_sexe = document.getElementsByName('nb_'+id+'_S');
+            let sexe ="";
             if (choix_sexe[0].checked) sexe = choix_sexe[0].value;
             if (choix_sexe[1].checked) sexe = choix_sexe[1].value;
 
@@ -216,7 +216,7 @@ function setPage2AG(doc, data, x_pos, y_pos){
                 // parts:  document.getElementById('nb_'+id+'_Parts').value
             });
 
-            var type = document.getElementsByName('nb_'+id+'_T');
+            let type = document.getElementsByName('nb_'+id+'_T');
             if (type[0].checked) {
                 listeDesConcessionnaires.push(
                     {
@@ -236,10 +236,10 @@ function setPage2AG(doc, data, x_pos, y_pos){
         }
     }
 
-    var objet_acte = "";
+    let objet_acte = "";
     if ($('#select_objet_acte').val() !== "" && $('#select_objet_acte').val() !== null){
-        var temp = $('#select_objet_acte').val();
-        for (var i=0; i < temp.length; i++){
+        let temp = $('#select_objet_acte').val();
+        for (let i=0; i < temp.length; i++){
             objet_acte += "-    " + temp[i] + "\n";
         }
     }
@@ -252,7 +252,7 @@ function setPage2AG(doc, data, x_pos, y_pos){
     y_pos += 5;
     addText(doc, x_pos, y_pos, "Numéro d'entreprise :" + " " +  numero_entreprise);
 
-    var souligner = true;
+    let souligner = true;
     y_pos += 25;
 
     let premiereResolution = function () {
@@ -264,11 +264,11 @@ function setPage2AG(doc, data, x_pos, y_pos){
 
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
-            var temp = $('#select_objet_acte').val();
+            let temp = $('#select_objet_acte').val();
             if (temp[0].includes('Transfert des')) {
                 addText(doc, x_pos, y_pos, cession());
 
-                for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 8
+                for(let i=0; i<getTailleListeDesCessions(); i++) y_pos += 8
             }
             if (temp[0].includes('Nomination')) addText(doc, x_pos, y_pos, nomination());
             if (temp[0].includes('Démission')) addText(doc, x_pos, y_pos, demission());
@@ -285,10 +285,10 @@ function setPage2AG(doc, data, x_pos, y_pos){
         }
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
-            var temp = $('#select_objet_acte').val();
+            let temp = $('#select_objet_acte').val();
             if (temp[1].includes('Transfert des')) {
                 addText(doc, x_pos, y_pos, cession());
-                for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
+                for(let i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
             if (temp[1].includes('Nomination')) addText(doc, x_pos, y_pos, nomination());
             if (temp[1].includes('Démission')) addText(doc, x_pos, y_pos, demission());
@@ -305,10 +305,10 @@ function setPage2AG(doc, data, x_pos, y_pos){
         }
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
-            var temp = $('#select_objet_acte').val();
+            let temp = $('#select_objet_acte').val();
             if (temp[2].includes('Transfert des')) {
                 addText(doc, x_pos, y_pos, cession());
-                for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
+                for(let i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
             if (temp[2].includes('Nomination')) addText(doc, x_pos, y_pos, nomination());
             if (temp[2].includes('Démission')) addText(doc, x_pos, y_pos, demission());
@@ -325,10 +325,10 @@ function setPage2AG(doc, data, x_pos, y_pos){
         }
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
-            var temp = $('#select_objet_acte').val();
+            let temp = $('#select_objet_acte').val();
             if (temp[3].includes('Transfert des')) {
                 addText(doc, x_pos, y_pos, cession());
-                for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
+                for(let i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
             if (temp[3].includes('Nomination')) addText(doc, x_pos, y_pos, nomination());
             if (temp[3].includes('Démission')) addText(doc, x_pos, y_pos, demission());
@@ -345,10 +345,10 @@ function setPage2AG(doc, data, x_pos, y_pos){
         }
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
-            var temp = $('#select_objet_acte').val();
+            let temp = $('#select_objet_acte').val();
             if (temp[4].includes('Transfert des')) {
                 addText(doc, x_pos, y_pos, cession());
-                for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
+                for(let i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
             if (temp[4].includes('Nomination')) addText(doc, x_pos, y_pos, nomination());
             if (temp[4].includes('Démission')) addText(doc, x_pos, y_pos, demission());
@@ -383,12 +383,12 @@ function setPage2AG(doc, data, x_pos, y_pos){
         default: break;
     }
 
-    var nouvelleRepartition = function(){
+    let nouvelleRepartition = function(){
         addText(doc, x_pos, y_pos, "La nouvelle répartition des " + getTypeDividende() + " est la suivante :");
         y_pos += 10;
 
-        var cess = calculerLesParts();
-        for(var i=0; i < cess.length ; i++){
+        let cess = calculerLesParts();
+        for(let i=0; i < cess.length ; i++){
             addText(doc, x_pos, y_pos, cess[i].titreCessionnaire + " " + cess[i].nomCessionnaire);
             addText(doc, x_pos+90, y_pos, cess[i].parts + " " + getTypeDividende(), {align: 'left'});
             y_pos += 5;
@@ -412,21 +412,21 @@ function setPage2AG(doc, data, x_pos, y_pos){
 }
 
 function textePresence(){
-    var liste = document.getElementById('div_nb');
+    let liste = document.getElementById('div_nb');
 
     if (liste.childElementCount > 0) {
-        var masculin = 0;
-        var feminin = 0;
-        for (var i = 0; i < liste.childElementCount; i++)
+        let masculin = 0;
+        let feminin = 0;
+        for (let i = 0; i < liste.childElementCount; i++)
         {
-            var id = liste.childNodes.item(i).id;
+            let id = liste.childNodes.item(i).id;
             id = id.substring(5);
 
-            var id_ancien = document.getElementsByName('nb_'+ id +'_T');
+            let id_ancien = document.getElementsByName('nb_'+ id +'_T');
 
             if (id_ancien[0].checked)
             {
-                var id_sexe = document.getElementsByName('nb_' + id + '_S');
+                let id_sexe = document.getElementsByName('nb_' + id + '_S');
                 if (id_sexe[0].checked) masculin++;
                 if (id_sexe[1].checked) feminin++;
             }
