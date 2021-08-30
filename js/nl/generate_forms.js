@@ -1144,22 +1144,57 @@ function getTypeOfPerson() {
     if ($('#select_objet_acte').val().indexOf('Transfert des actions') >= 0) return 'Bestuurder';
 }
 
+function fillFormAuto() {
+    const form1_inputs_array = ["numero_entreprise", "nom", "rue", "numero_rue", "boite", "code_postal", "localite", "pays",
+        "texte", "soussigne", "soussigneP", "fait_a"];
 
-// function financial(x) {
-//     return Number.parseFloat(x).toFixed(2);
-// }
-//
-// function round2Decimals(x){
-//     return Math.round((x + 0.00001) * 100.00) / 100.00;
-// }
-//
-// function generatePageNumbers(doc){
-//     var pageSize = doc.internal.pageSize;
-//     var pageHeight = pageSize.height ? pageSize.height : pageSize.getHeight();
-//     var pageCount = doc.internal.getNumberOfPages();
-//     doc.setFontSize(8);
-//     for(var i=0; i < pageCount; i++){
-//         doc.setPage(i);
-//         doc.text(doc.internal.getCurrentPageInfo().pageNumber + "/" + pageCount, 200, pageHeight - 8, {align: 'right'});
-//     }
-// }
+    const form2_ancien_gerant_inputs_array = ["nom_ancien", "prenom_ancien",
+        "registre_national_ancien"];
+
+    const form2_nouveau_gerant_inputs_array = ["nom_new", "prenom_new", "rue_new_gerant", "numero_new_gerant",
+        "boite_new_gerant", "code_postal_new_gerant", "localite_new_gerant",
+        "pays_new_gerant", "registre_national_nouveau"];
+
+    const form2_nouveau_siege_inputs_array = ["rue_new", "numero_new", "boite_new", "code_postal_new",
+        "localite_new", "pays_new"];
+
+    const form2_nouvelle_forme_selects_array = ["select_forme_legale_new"];
+
+    const form2 = {"Changement de forme légale": form2_nouvelle_forme_selects_array,
+        "Overdracht van de statutaire zetel": form2_nouveau_siege_inputs_array,
+        "Ontslag van zaakvoerder": form2_ancien_gerant_inputs_array,
+        "Ontslag van bestuurder": form2_ancien_gerant_inputs_array,
+        "Benoeming van zaakvoerder": form2_nouveau_gerant_inputs_array,
+        "Benoeming van bestuurder": form2_nouveau_gerant_inputs_array};
+
+    for (const input of form1_inputs_array) {
+        document.getElementById(input).value = "Test";
+    }
+
+    $("#select_forme_legale").val(["Besloten vennootschap"]);
+    $("#select_objet_acte").val(["Benoeming van zaakvoerder", "Ontslag van zaakvoerder"]);
+    $("#select_agissant_comme").val(["gérant"]);
+
+
+    // Triggering the event
+    displayForm2Section();
+
+    const actes = document.getElementById("select_objet_acte").selectedOptions;
+
+    for (const acte of actes) {
+        const section = acte.value;
+
+        for (const input of form2[section]) {
+            document.getElementById(input).value = "Test";
+        }
+    }
+
+    // Update input fields
+    M.updateTextFields();
+
+    // Update select fields
+    const elems = document.querySelectorAll('select');
+    M.FormSelect.init(elems);
+
+    return "Fields have been filled automatically !";
+}

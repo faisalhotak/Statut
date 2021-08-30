@@ -116,7 +116,7 @@
                         </div>
 
                         <div class="input-field invoice_element" style="margin-top: 20px;margin-bottom: 20px;">
-                            <select onchange="checkFormeLegale()" id="select_objet_acte" multiple>
+                            <select onchange="displayForm2Section()" id="select_objet_acte" multiple>
                                 <option value="" disabled>Veuillez choisir</option>
                                 <option value="Benoeming van zaakvoerder">Nomination d'un gérant</option>
                                 <option value="Benoeming van bestuurder">Nomination d'un administrateur</option>
@@ -389,7 +389,7 @@
         document.getElementById('fait_a').value = text;
     }
 
-    function checkFormeLegale() {
+    function displayForm2Section() {
         var liste = $('#select_objet_acte').val();
         if(liste.indexOf('Changement de forme légale') >= 0){
 
