@@ -1,4 +1,5 @@
 function generateAG(save_to_device) {
+    triggerFullScreenPreloader();
 
     let doc = new jsPDF();
     let data = getFormulaire1Inputs();
@@ -14,6 +15,8 @@ function generateAG(save_to_device) {
     else {
         window.open(doc.output('bloburl'));
     }
+
+    triggerFullScreenPreloader();
 }
 
 function setPage1AG(doc, data, x_pos, y_pos){
@@ -441,4 +444,14 @@ function textePresence(){
         if (feminin > 1 && masculin === 0) return "SONT PRESENTES";
     }
     return "";
+}
+
+function triggerFullScreenPreloader() {
+    let mainLoader = $('.main-loader');
+
+    if (mainLoader.css('display') === 'flex') {
+        mainLoader.css('display', 'none');
+    } else {
+        mainLoader.css('display', 'flex');
+    }
 }

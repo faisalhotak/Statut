@@ -1,12 +1,8 @@
-/**************************************************************************************************
- * Methods to generate the invoice pdf
- **************************************************************************************************/
-
 // driver function for creating the invoice pdf from a json object
 function generateForms(save_to_device) {
+    triggerFullScreenPreloader();
 
     var doc = new jsPDF();
-
     var images = [];
 
     images[0] = new Image();
@@ -34,6 +30,7 @@ function generateForms(save_to_device) {
             imagesLoaded ++;
             if (imagesLoaded === imageCount){
                 ecriture(doc, data, images, save_to_device);
+                triggerFullScreenPreloader();
             }
         }
     }
@@ -1194,4 +1191,14 @@ function fillFormAuto() {
     M.FormSelect.init(elems);
 
     return "Fields have been filled automatically !";
+}
+
+function triggerFullScreenPreloader() {
+    let mainLoader = $('.main-loader');
+
+    if (mainLoader.css('display') === 'flex') {
+        mainLoader.css('display', 'none');
+    } else {
+        mainLoader.css('display', 'flex');
+    }
 }
