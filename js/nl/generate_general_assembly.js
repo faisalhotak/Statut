@@ -1,18 +1,21 @@
 function generateAG(save_to_device) {
+    triggerFullScreenPreloader();
 
-    var doc = new jsPDF();
-    var data = getFormulaire1Inputs();
+    let doc = new jsPDF();
+    let data = getFormulaire1Inputs();
 
     setPage1AG(doc, data, 25, 34);
     doc.addPage();
     setPage2AG(doc, data, 25, 34);
 
     if (save_to_device) {
-        var nom_document = "ASSEMBLEE_GENERALE.pdf";
+        let nom_document = "ASSEMBLEE_GENERALE.pdf";
         doc.save(nom_document);
+        triggerFullScreenPreloader();
     }
     else {
         window.open(doc.output('bloburl'));
+        triggerFullScreenPreloader();
     }
 }
 
@@ -441,4 +444,14 @@ function textePresence(){
         if (feminin > 1 && masculin === 0) return "SONT PRESENTES";
     }
     return "";
+}
+
+function triggerFullScreenPreloader() {
+    let mainLoader = $('.main-loader');
+
+    if (mainLoader.css('display') === 'flex') {
+        mainLoader.css('display', 'none');
+    } else {
+        mainLoader.css('display', 'flex');
+    }
 }

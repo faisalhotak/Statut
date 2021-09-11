@@ -11,12 +11,12 @@ function generateAG(save_to_device) {
     if (save_to_device) {
         let nom_document = "ASSEMBLEE_GENERALE.pdf";
         doc.save(nom_document);
+        triggerFullScreenPreloader();
     }
     else {
         window.open(doc.output('bloburl'));
+        triggerFullScreenPreloader();
     }
-
-    triggerFullScreenPreloader();
 }
 
 function setPage1AG(doc, data, x_pos, y_pos){

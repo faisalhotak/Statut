@@ -22,7 +22,7 @@
             </div>
         </div>
     </li>
-
+----------------
     <li class="input-field" style="padding: 30px;">
         <input id="num_bce" type="text" class="materialize-textarea" placeholder="Ex. : 0123.456.789">
         <label style="padding: 30px;" for="num_bce">Numéro d'entreprise</label>
@@ -331,6 +331,22 @@
 </div>
 </body>
 
+<!-- Full screen preloader -->
+<div class="main-loader">
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="../js/materialize.min.js"></script>
 <script src="../js/nl/generate_forms.js"></script>
@@ -392,7 +408,6 @@
     function displayForm2Section() {
         var liste = $('#select_objet_acte').val();
         if(liste.indexOf('Changement de forme légale') >= 0){
-
             document.getElementById('div_forme_legale_new').style.visibility = 'initial';
         }
         else{
@@ -400,7 +415,7 @@
             document.getElementById('div_forme_legale_new').style.visibility = 'hidden';
         }
 
-        if(liste.indexOf('Transfert du siège social') >= 0){
+        if(liste.indexOf('Overdracht van de statutaire zetel') >= 0){
             document.getElementById('div_siege_new').style.visibility = 'initial';
         }
         else{
@@ -413,11 +428,11 @@
             document.getElementById('div_siege_new').style.visibility = 'hidden';
         }
 
-        if(liste.indexOf('Démission d\'un gérant') >= 0 || liste.indexOf('Démission d\'un administrateur') >= 0)
+        if(liste.indexOf('Ontslag van zaakvoerder') >= 0 || liste.indexOf('Ontslag van bestuurder') >= 0)
         {document.getElementById('ancienGerant').style.visibility = 'initial';}
         else {document.getElementById('ancienGerant').style.visibility = 'hidden';}
 
-        if(liste.indexOf('Nomination d\'un gérant') >= 0 || liste.indexOf('Nomination d\'un administrateur') >= 0)
+        if(liste.indexOf('Benoeming van zaakvoerder') >= 0 || liste.indexOf('Benoeming van bestuurder') >= 0)
         {document.getElementById('nouveauGerant').style.visibility = 'initial';}
         else {document.getElementById('nouveauGerant').style.visibility = 'hidden';}
 

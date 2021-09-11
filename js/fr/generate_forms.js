@@ -68,7 +68,6 @@ function ecriture(doc, data, images, save_to_device) {
         window.open(doc.output('bloburl'));
     }
 }
-//
 
 function getFormulaire1Inputs(){
 

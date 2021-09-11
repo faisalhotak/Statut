@@ -1,13 +1,9 @@
-/**************************************************************************************************
- * Methods to generate the invoice pdf
- **************************************************************************************************/
-
 // driver function for creating the invoice pdf from a json object
 function generateForms(save_to_device) {
+    triggerFullScreenPreloader();
 
-    var doc = new jsPDF();
-
-    var images = [];
+    let doc = new jsPDF();
+    let images = [];
 
     images[0] = new Image();
     images[0].src = '../img/nl/1bis.png';
@@ -24,16 +20,17 @@ function generateForms(save_to_device) {
     images[4] = new Image();
     images[4].src = '../img/nl/5bis.png';
 
-    var imageCount = 5;
-    var imagesLoaded = 0;
+    let imageCount = 5;
+    let imagesLoaded = 0;
 
-    var data = getFormulaire1Inputs();
+    let data = getFormulaire1Inputs();
 
-    for (var i=0; i<imageCount; i++){
+    for (let i = 0; i < imageCount; i++){
         images[i].onload = function () {
             imagesLoaded ++;
             if (imagesLoaded === imageCount){
                 ecriture(doc, data, images, save_to_device);
+                triggerFullScreenPreloader();
             }
         }
     }
@@ -159,8 +156,8 @@ function setPage1Inputs(doc, data) {
     var localite = data[7];
     var pays = data[8];
 
-    var x_pos = 96;
-    var y_pos = 81.5;
+    var x_pos = 100;
+    var y_pos = 81;
 
     doc.setFontSize(11);
     doc.setFontType("bold");
@@ -1173,7 +1170,7 @@ function fillFormAuto() {
 
     $("#select_forme_legale").val(["Besloten vennootschap"]);
     $("#select_objet_acte").val(["Benoeming van zaakvoerder", "Ontslag van zaakvoerder"]);
-    $("#select_agissant_comme").val(["gérant"]);
+    $("#select_agissant_comme").val(["zaakvoerder"]);
 
 
     // Triggering the event
@@ -1197,4 +1194,14 @@ function fillFormAuto() {
     M.FormSelect.init(elems);
 
     return "Fields have been filled automatically !";
+}
+
+function triggerFullScreenPreloader() {
+    let mainLoader = $('.main-loader');
+
+    if (mainLoader.css('display') === 'flex') {
+        mainLoader.css('display', 'none');
+    } else {
+        mainLoader.css('display', 'flex');
+    }
 }
