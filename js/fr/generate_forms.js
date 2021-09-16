@@ -172,7 +172,9 @@ function setPage1Inputs(doc, data) {
 
     x_pos -= 11;
     y_pos += 11;
+    if (rue.length > 25) doc.setFontSize(9);
     addText(doc, x_pos, y_pos, rue);
+    doc.setFontSize(11);
 
     x_pos += 60;
     addText(doc, x_pos, y_pos, numero_rue);
@@ -420,19 +422,21 @@ function setPage3Inputs(doc, data){
     var y_pos = 249.5;
 
     var longueur = soussigne + " " + soussigneP;
+    doc.setFontType("bold");
 
     if (longueur.length > 15){
         doc.setFontSize(9);
-        doc.setFontType("bold");
-        addText(doc, x_pos, y_pos-0.3, soussigne + " " + soussigneP);
-    }
-    else{
-        doc.setFontSize(11);
-        doc.setFontType("bold");
-        addText(doc, x_pos, y_pos, soussigne + " " + soussigneP);
     }
 
+    if (longueur.length > 20) {
+        doc.setFontSize(8);
+    }
 
+    if (longueur.length > 23) {
+        doc.setFontSize(7);
+    }
+
+    addText(doc, x_pos, y_pos, soussigne + " " + soussigneP);
 
     doc.setFontSize(11);
     doc.setFontType("bold");
@@ -564,14 +568,17 @@ function setPage5Inputs(doc, data){
 
     if (longueur.length > 15){
         doc.setFontSize(9);
-        doc.setFontType("bold");
-        addText(doc, x_pos, y_pos-0.3, soussigne + " " + soussigneP);
     }
-    else{
-        doc.setFontSize(11);
-        doc.setFontType("bold");
-        addText(doc, x_pos, y_pos, soussigne + " " + soussigneP);
+
+    if (longueur.length > 20) {
+        doc.setFontSize(8);
     }
+
+    if (longueur.length > 23) {
+        doc.setFontSize(7);
+    }
+
+    addText(doc, x_pos, y_pos-0.3, longueur);
 
     doc.setFontSize(11);
     doc.setFontType("bold");
