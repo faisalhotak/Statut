@@ -31,7 +31,7 @@ function setPage1AG(doc, data, x_pos, y_pos){
     var localite = data[7];
     var pays = data[8];
 
-    if (boite !== "") boite = "Bte " + boite;
+    if (boite !== "") boite = "Bus " + boite;
 
     var texte = data[10];
     var soussigne = data[11];
@@ -105,12 +105,12 @@ function setPage1AG(doc, data, x_pos, y_pos){
     y_pos += 5;
     addText(doc, x_pos, y_pos, code_postal + " " + localite);
     y_pos += 5;
-    addText(doc, x_pos, y_pos, "Numéro d'entreprise :" + " " +  numero_entreprise);
+    addText(doc, x_pos, y_pos, "Ondernemingsnummer : " +  numero_entreprise);
 
     x_pos += 10;
     y_pos += 15;
     doc.setFontStyle('bold');
-    addText(doc, x_pos, y_pos, "Proces-verbal de l'assemblee generale extraordinaire".toUpperCase());
+    addText(doc, x_pos, y_pos, "Notulen van de buitengewone algemene vergadering".toUpperCase());
     doc.setFillColor(0,0,0);
     doc.rect(x_pos, y_pos+0.5, 140, 0.5, 'F');
 
@@ -129,22 +129,22 @@ function setPage1AG(doc, data, x_pos, y_pos){
 
 
     y_pos += 5;
-    addText(doc, x_pos, y_pos, "qui " + getReuni(anciens) + " la totalité des " + getTypeDividende() + " représentatives du capital de la société.");
+    // addText(doc, x_pos, y_pos, "qui " + getReuni(anciens) + " la totalité des " + getTypeDividende() + " représentatives du capital de la société.");
 
     y_pos += 10;
-    addText(doc, x_pos, y_pos, "La séance est ouverte sous la présidence de" + " " + getPresident(liste) + ".");
+    addText(doc, x_pos, y_pos, "De vergadering wordt geopend onder het voorzitterschap van " + getPresident(liste) + ".");
 
     y_pos += 15;
-    addText(doc, x_pos, y_pos, "Le président déclare ensuite : qui accepte");
+    addText(doc, x_pos, y_pos, "De president verklaart vervolgens :");
 
     y_pos += 10;
-    addText(doc, x_pos, y_pos, "1. que la présente assemblée a pour objet de délibérer quant à l'ordre du jour ici rappelé : ");
+    addText(doc, x_pos, y_pos, "1. Dat het doel van deze vergadering is om hier op de agenda te beraadslagen, herinnerd aan :");
 
     x_pos += 65;
     y_pos += 15;
-    addText(doc, x_pos, y_pos, "ordre du jour".toUpperCase());
+    addText(doc, x_pos, y_pos, "agenda".toUpperCase());
     doc.setFillColor(0,0,0);
-    doc.rect(x_pos, y_pos+0.5, 33.5, 0.2, 'F');
+    doc.rect(x_pos, y_pos+0.5, 18, 0.2, 'F');
 
     x_pos -= 40;
     y_pos += 10;
@@ -154,16 +154,16 @@ function setPage1AG(doc, data, x_pos, y_pos){
     }
 
     x_pos -= 25;
-    y_pos += 5;
-    addText(doc, x_pos, y_pos, "2. que tous les " + asso_actio + " ayant consenti à se réunir et étant présents, il ne doit pas être justifié " +
-        "de l'envoi des convocations. La présente assamblée est par suite valablement réunie et apte à délibérer quant à l'ordre du jour établi.");
+    y_pos += 10;
+    addText(doc, x_pos, y_pos, "2. Dat alle " + asso_actio + " hebben ingestemd met ontmoeten en aanwezig zijn, dit moet niet worden gerechtvaardigd " +
+        "van het verzenden van convocaties. Deze vergadering is daarom geldig bijeengeroepen en in staat om weloverwogen op de vastgestelde agenda.");
 
     y_pos += 30;
-    addText(doc, x_pos, y_pos, "L'assemblée prend ensuite à l'unanimité et chaque fois par un vote séparé, les résolutions suivantes :");
+    // addText(doc, x_pos, y_pos, "L'assemblée prend ensuite à l'unanimité et chaque fois par un vote séparé, les résolutions suivantes :");
 
     x_pos += 125;
     y_pos += 20;
-    addText(doc, x_pos, y_pos, "Paraphes");
+    // addText(doc, x_pos, y_pos, "Paraphes");
 }
 
 function setPage2AG(doc, data, x_pos, y_pos){
@@ -181,7 +181,7 @@ function setPage2AG(doc, data, x_pos, y_pos){
     var localite = data[7];
     var pays = data[8];
 
-    if (boite !== "") boite = "Bte " + boite;
+    if (boite !== "") boite = "Bus " + boite;
 
     var texte = data[10];
     var soussigne = data[11];
@@ -253,13 +253,13 @@ function setPage2AG(doc, data, x_pos, y_pos){
     y_pos += 5;
     addText(doc, x_pos, y_pos, code_postal + " " + localite);
     y_pos += 5;
-    addText(doc, x_pos, y_pos, "Numéro d'entreprise :" + " " +  numero_entreprise);
+    addText(doc, x_pos, y_pos, "Ondernemingsnummer : " +  numero_entreprise);
 
     var souligner = true;
     y_pos += 25;
 
     let premiereResolution = function () {
-        addText(doc, x_pos, y_pos, "premiere resolution".toUpperCase());
+        addText(doc, x_pos, y_pos, "eerste resolutie".toUpperCase());
         if (souligner) {
             doc.setFillColor(0, 0, 0);
             doc.rect(x_pos, y_pos + 0.5, 48.5, 0.2, 'F');
@@ -268,20 +268,20 @@ function setPage2AG(doc, data, x_pos, y_pos){
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
             var temp = $('#select_objet_acte').val();
-            if (temp[0].includes('Transfert des')) {
+            if (temp[0].includes('Overdracht van aandelen')) {
                 addText(doc, x_pos, y_pos, cession());
 
                 for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 8
             }
-            if (temp[0].includes('Nomination')) addText(doc, x_pos, y_pos, nomination());
-            if (temp[0].includes('Démission')) addText(doc, x_pos, y_pos, demission());
-            if (temp[0].includes('Transfert du siège social')) addText(doc, x_pos, y_pos, transfert());
+            if (temp[0].includes('Ontslag')) addText(doc, x_pos, y_pos, demission());
+            if (temp[0].includes('Benoeming')) addText(doc, x_pos, y_pos, nomination());
+            if (temp[0].includes('Overdracht van de statutaire zetel')) addText(doc, x_pos, y_pos, transfert());
             if (temp[0].includes('Changement')) addText(doc, x_pos, y_pos, changement());
         }
         y_pos += 15;
     };
     let deuxiemeResolution = function (){
-        addText(doc, x_pos, y_pos, "deuxieme resolution".toUpperCase());
+        addText(doc, x_pos, y_pos, "tweede resolutie".toUpperCase());
         if (souligner){
             doc.setFillColor(0,0,0);
             doc.rect(x_pos, y_pos+0.5, 49.5, 0.2, 'F');
@@ -289,19 +289,19 @@ function setPage2AG(doc, data, x_pos, y_pos){
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
             var temp = $('#select_objet_acte').val();
-            if (temp[1].includes('Transfert des')) {
+            if (temp[1].includes('Overdracht van aandelen')) {
                 addText(doc, x_pos, y_pos, cession());
                 for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
-            if (temp[1].includes('Nomination')) addText(doc, x_pos, y_pos, nomination());
-            if (temp[1].includes('Démission')) addText(doc, x_pos, y_pos, demission());
-            if (temp[1].includes('Transfert du siège social')) addText(doc, x_pos, y_pos, transfert());
+            if (temp[1].includes('Ontslag')) addText(doc, x_pos, y_pos, demission());
+            if (temp[1].includes('Benoeming')) addText(doc, x_pos, y_pos, nomination());
+            if (temp[1].includes('Overdracht van de statutaire zetel')) addText(doc, x_pos, y_pos, transfert());
             if (temp[1].includes('Changement')) addText(doc, x_pos, y_pos, changement());
         }
         y_pos += 15;
     };
     let troisiemeResolution = function (){
-        addText(doc, x_pos, y_pos, "troisieme resolution".toUpperCase());
+        addText(doc, x_pos, y_pos, "derde resolutie".toUpperCase());
         if (souligner){
             doc.setFillColor(0,0,0);
             doc.rect(x_pos, y_pos+0.5, 50, 0.2, 'F');
@@ -309,19 +309,19 @@ function setPage2AG(doc, data, x_pos, y_pos){
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
             var temp = $('#select_objet_acte').val();
-            if (temp[2].includes('Transfert des')) {
+            if (temp[2].includes('Overdracht van aandelen')) {
                 addText(doc, x_pos, y_pos, cession());
                 for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
-            if (temp[2].includes('Nomination')) addText(doc, x_pos, y_pos, nomination());
-            if (temp[2].includes('Démission')) addText(doc, x_pos, y_pos, demission());
-            if (temp[2].includes('Transfert du siège social')) addText(doc, x_pos, y_pos, transfert());
+            if (temp[2].includes('Ontslag')) addText(doc, x_pos, y_pos, demission());
+            if (temp[2].includes('Benoeming')) addText(doc, x_pos, y_pos, nomination());
+            if (temp[2].includes('Overdracht van de statutaire zetel')) addText(doc, x_pos, y_pos, transfert());
             if (temp[2].includes('Changement')) addText(doc, x_pos, y_pos, changement());
         }
         y_pos += 15;
     };
     let quatriemeResolution = function (){
-        addText(doc, x_pos, y_pos, "quatrieme resolution".toUpperCase());
+        addText(doc, x_pos, y_pos, "vierde resolutie".toUpperCase());
         if (souligner){
             doc.setFillColor(0,0,0);
             doc.rect(x_pos, y_pos+0.5, 52.5, 0.2, 'F');
@@ -329,19 +329,19 @@ function setPage2AG(doc, data, x_pos, y_pos){
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
             var temp = $('#select_objet_acte').val();
-            if (temp[3].includes('Transfert des')) {
+            if (temp[3].includes('Overdracht van aandelen')) {
                 addText(doc, x_pos, y_pos, cession());
                 for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
-            if (temp[3].includes('Nomination')) addText(doc, x_pos, y_pos, nomination());
-            if (temp[3].includes('Démission')) addText(doc, x_pos, y_pos, demission());
-            if (temp[3].includes('Transfert du siège social')) addText(doc, x_pos, y_pos, transfert());
+            if (temp[3].includes('Ontslag')) addText(doc, x_pos, y_pos, demission());
+            if (temp[3].includes('Benoeming')) addText(doc, x_pos, y_pos, nomination());
+            if (temp[3].includes('Overdracht van de statutaire zetel')) addText(doc, x_pos, y_pos, transfert());
             if (temp[3].includes('Changement')) addText(doc, x_pos, y_pos, changement());
         }
         y_pos += 15;
     };
     let cinquiemeResolution = function (){
-        addText(doc, x_pos, y_pos, "cinquieme resolution".toUpperCase());
+        addText(doc, x_pos, y_pos, "vijfde resolutie".toUpperCase());
         if (souligner){
             doc.setFillColor(0,0,0);
             doc.rect(x_pos, y_pos+0.5, 52.5, 0.2, 'F');
@@ -349,13 +349,13 @@ function setPage2AG(doc, data, x_pos, y_pos){
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
             var temp = $('#select_objet_acte').val();
-            if (temp[4].includes('Transfert des')) {
+            if (temp[4].includes('Overdracht van aandelen')) {
                 addText(doc, x_pos, y_pos, cession());
                 for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
-            if (temp[4].includes('Nomination')) addText(doc, x_pos, y_pos, nomination());
-            if (temp[4].includes('Démission')) addText(doc, x_pos, y_pos, demission());
-            if (temp[4].includes('Transfert du siège social')) addText(doc, x_pos, y_pos, transfert());
+            if (temp[4].includes('Ontslag')) addText(doc, x_pos, y_pos, demission());
+            if (temp[4].includes('Benoeming')) addText(doc, x_pos, y_pos, nomination());
+            if (temp[4].includes('Overdracht van de statutaire zetel')) addText(doc, x_pos, y_pos, transfert());
             if (temp[4].includes('Changement')) addText(doc, x_pos, y_pos, changement());
         }
         y_pos += 15;
@@ -387,7 +387,7 @@ function setPage2AG(doc, data, x_pos, y_pos){
     }
 
     var nouvelleRepartition = function(){
-        addText(doc, x_pos, y_pos, "La nouvelle répartition des " + getTypeDividende() + " est la suivante :");
+        addText(doc, x_pos, y_pos, "Na overdraagt van " + getTypeDividende() + " :");
         y_pos += 10;
 
         var cess = calculerLesParts();
@@ -398,17 +398,17 @@ function setPage2AG(doc, data, x_pos, y_pos){
         }
     };
 
-    if($('#select_objet_acte').val().indexOf('Transfert des parts sociales') >= 0 || $('#select_objet_acte').val().indexOf('Transfert des actions') >= 0)
+    if($('#select_objet_acte').val().indexOf('Overdracht van aandelen') >= 0)
     {
         nouvelleRepartition();
     }
 
     y_pos += 10;
-    addText(doc, x_pos, y_pos, "L'ordre du jour étant épuisé, la séance est levée après discussion et lecture du présent procès-verbal signé pour approbation par tous les" + " " + asso_actio + " " + "présents.");
+    // addText(doc, x_pos, y_pos, "L'ordre du jour étant épuisé, la séance est levée après discussion et lecture du présent procès-verbal signé pour approbation par tous les" + " " + asso_actio + " " + "présents.");
 
     x_pos = 25;
     y_pos += 15;
-    addText(doc, x_pos, y_pos,"Signatures");
+    addText(doc, x_pos, y_pos,"Handtekeningen");
 
     y_pos += 15;
     signer(doc, x_pos, y_pos, liste, listeDesPersonnes);
@@ -434,14 +434,12 @@ function textePresence(){
                 if (id_sexe[1].checked) feminin++;
             }
         }
-        console.log('masculin : ' + masculin);
-        console.log('feminin : ' + feminin);
 
-        if (masculin === 1 && feminin === 0) return "EST PRESENT";
-        if (masculin === 1) return "SONT PRESENTS";
-        if (masculin > 1) return "SONT PRESENTS";
-        if (feminin === 1 && masculin === 0) return "EST PRESENTE";
-        if (feminin > 1 && masculin === 0) return "SONT PRESENTES";
+        if (masculin === 1 && feminin === 0) return "IS AANWEZIG";
+        if (masculin === 1) return "ZIJN AANWEZIG";
+        if (masculin > 1) return "ZIJN AANWEZIG";
+        if (feminin === 1 && masculin === 0) return "IS AANWEZIG";
+        if (feminin > 1 && masculin === 0) return "ZIJN AANWEZIG";
     }
     return "";
 }
