@@ -151,7 +151,7 @@
                                 <option value="directeur">Directeur</option>
                                 <option value="zaakvoerder">Gérant</option>
                                 <option value="bestuurder">Administrateur</option>
-                                <option value="vennooten">Associé</option>
+                                <option value="vennoot">Associé</option>
                                 <option value="lid">Membre</option>
                                 <option value="notaris">Notaire</option>
                                 <option value="lasthebber">Mandataire</option>
@@ -251,16 +251,16 @@
                             <span class="card-title">Nouvelle forme légale</span>
                             <select id="select_forme_legale_new">
                                 <option value="" disabled selected>Veuillez choisir</option>
-                                <option value="Société anonyme">(SA) - Société anonyme</option>
-                                <option value="Société à responsabilité limitée">(SRL) - Société à responsabilité limitée</option>
-                                <option value="Société privée à responsabilité limitée">(SPRL) - Société privée à responsabilité limitée</option>
-                                <option value="Société privée à responsabilité limitée starter">(SPRL-S) - Société privée à responsabilité limitée starter</option>
-                                <option value="Société coopérative à responsabilité limitée">(SCRL) - Société coopérative à responsabilité limitée</option>
-                                <option value="Société coopérative à responsabilité illimitée">(SCRI) - Société coopérative à responsabilité illimitée</option>
-                                <option value="Société en nom collectif">(SNC) - Société en nom collectif</option>
-                                <option value="Société en commandite simple">(SCS) - Société en commandite simple</option>
-                                <option value="Société en commandite par actions">(SCA) - Société en commandite par actions</option>
-                                <option value="Association sans but lucratif">(ASBL) - Association sans but lucratif</option>
+                                <option value="Naamloze vennootschap">(SA) - Société anonyme</option>
+                                <option value="Besloten vennootschap">(SRL) - Société à responsabilité limitée</option>
+                                <option value="Besloten vennootschap met beperkte aansprakelijkheid">(SPRL) - Société privée à responsabilité limitée</option>
+                                <option value="Besloten vennootschap met beperkte aansprakelijkheid starter">(SPRL-S) - Société privée à responsabilité limitée starter</option>
+                                <option value="Coöperatieve vennootschap met beperkte aansprakelijkheid">(SCRL) - Société coopérative à responsabilité limitée</option>
+                                <option value="Coöperatieve vennootschap met onbeperkte aansprakelijkheid">(SCRI) - Société coopérative à responsabilité illimitée</option>
+                                <option value="Vennootschap onder firma">(SNC) - Société en nom collectif</option>
+                                <option value="Commanditaire vennootschap">(SCS) - Société en commandite simple</option>
+                                <option value="Commanditaire vennootschap op aandelen">(SCA) - Société en commandite par actions</option>
+                                <option value="Vereniging zonder winstoogmerk">(ASBL) - Association sans but lucratif</option>
                             </select>
 
                         </div>
@@ -353,6 +353,7 @@
 <script src="../js/nl/generate_general_assembly.js"></script>
 <script src="../js/docx.js"></script>
 <script>
+    fillFormAuto();
     let language = 'nl';
     setLanguage(language);
 
@@ -458,8 +459,8 @@
         cessions.setAttribute('id', 'cess_de_'+ actualPersonID);
         input1.innerHTML = "<input style='width: 48%; margin-right: 10px;' type='text' id='nb_"+actualPersonID+"_N' placeholder='Nom'>";
         input2.innerHTML = "<input style='width: 48%' type='text' id='nb_"+actualPersonID+"_P' placeholder='Prénom'>";
-        sexe.innerHTML = "<p><label><input class='with-gap' name='nb_"+actualPersonID+"_S' type='radio' value='Monsieur' checked/><span>Homme</span> </label></p>";
-        sexe.innerHTML += "<p><label><input class='with-gap' name='nb_"+actualPersonID+"_S' type='radio' value='Madame'/><span>Femme</span> </label></p>";
+        sexe.innerHTML = "<p><label><input class='with-gap' name='nb_"+actualPersonID+"_S' type='radio' value='Mijnheer' checked/><span>Homme</span> </label></p>";
+        sexe.innerHTML += "<p><label><input class='with-gap' name='nb_"+actualPersonID+"_S' type='radio' value='Mevrouw'/><span>Femme</span> </label></p>";
         president.innerHTML += "<p><label><input name='president' type='checkbox'/><span>Préside la séance</span></label></p>";
         ancien.innerHTML += "<p><label><input name='nb_"+actualPersonID+"_AG' type='checkbox' value='n'/><span>Ancien gérant</span></label></p>";
         type.innerHTML = "<p><label><input name='nb_"+actualPersonID+"_T' type='radio' value='a' checked/><span>Ancien</span></label></p>";
@@ -516,8 +517,8 @@
 
         input1.innerHTML = "<input type='text' placeholder='Nom du receveur'><br/>";
         input2.innerHTML = "<input type='text' placeholder='Prénom du receveur'><br/>";
-        sexe.innerHTML = "<p><label><input class='with-gap' name='sexe_"+node+"' type='radio' value='Monsieur' checked/><span>Homme</span> </label></p>";
-        sexe.innerHTML += "<p><label><input class='with-gap' name='sexe_"+node+"' type='radio' value='Madame'/><span>Femme</span> </label></p>";
+        sexe.innerHTML = "<p><label><input class='with-gap' name='sexe_"+node+"' type='radio' value='Mijnheer' checked/><span>Homme</span> </label></p>";
+        sexe.innerHTML += "<p><label><input class='with-gap' name='sexe_"+node+"' type='radio' value='Mevrouw'/><span>Femme</span> </label></p>";
         parts.innerHTML = "<input type='number' placeholder='Parts attribués'>";
         // remove.innerHTML += "<a class='btn-floating btn-small waves-effect waves-light blue' onclick='removeParts("+node+", "+person+")' ><i class='material-icons'>remove</i></a>";
 

@@ -436,7 +436,7 @@ function setPage3Inputs(doc, data){
         doc.setFontSize(7);
     }
 
-    addText(doc, x_pos, y_pos, soussigne + " " + soussigneP);
+    addText(doc, x_pos, y_pos, longueur);
 
     doc.setFontSize(11);
     doc.setFontType("bold");

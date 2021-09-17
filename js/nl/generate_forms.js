@@ -157,7 +157,7 @@ function setPage1Inputs(doc, data) {
     var pays = data[8];
 
     var x_pos = 100;
-    var y_pos = 81;
+    var y_pos = 80.5;
 
     doc.setFontSize(11);
     doc.setFontType("bold");
@@ -165,31 +165,31 @@ function setPage1Inputs(doc, data) {
 
     x_pos -= 5;
     y_pos += 6;
-    addText(doc, x_pos, y_pos, nom);
+    addText(doc, x_pos-5, y_pos+0.5, nom);
 
     x_pos -= 2;
-    y_pos += 16.5;
+    y_pos += 16;
     addText(doc, x_pos, y_pos, forme_legale);
 
     x_pos -= 11;
-    y_pos += 11;
+    y_pos += 10;
     addText(doc, x_pos, y_pos, rue);
 
-    x_pos += 60;
+    x_pos += 67;
     addText(doc, x_pos, y_pos, numero_rue);
 
-    x_pos += 40;
+    x_pos += 27;
     addText(doc, x_pos, y_pos, boite);
 
     x_pos -= 88;
-    y_pos += 6;
+    y_pos += 5.5;
     addText(doc, x_pos, y_pos, code_postal);
 
-    x_pos += 34;
+    x_pos += 48;
     addText(doc, x_pos, y_pos, localite);
 
-    x_pos -= 45;
-    y_pos += 6.5;
+    x_pos -= 55;
+    y_pos += 5.5;
     addText(doc, x_pos, y_pos, pays);
 }
 
@@ -215,7 +215,7 @@ function setPage2Inputs(doc, data){
     }
 
     var x_pos = 80;
-    var y_pos = 68.5;
+    var y_pos = 68;
 
     doc.setFontSize(11);
     doc.setFontType("bold");
@@ -224,10 +224,10 @@ function setPage2Inputs(doc, data){
     y_pos += 8.5;
     addText(doc, x_pos, y_pos, nom);
 
-    y_pos += 11.5;
+    y_pos += 9.5;
     addText(doc, x_pos, y_pos, forme_legale);
 
-    y_pos += 6.5;
+    y_pos += 6;
     addText(doc, x_pos, y_pos, rue + " " + numero_rue + boite + code_postal + " " + localite);
 
     x_pos -= 12;
@@ -261,14 +261,14 @@ function setPage2Inputs(doc, data){
         y_pos += 5;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
             var temp = $('#select_objet_acte').val();
-            if (temp[0].includes('Transfert des')) {
+            if (temp[0].includes('Overdracht van aandelen')) {
                 addText2(doc, x_pos, y_pos, cession());
 
                 for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
-            if (temp[0].includes('Démission')) addText2(doc, x_pos, y_pos, demission());
-            if (temp[0].includes('Nomination')) addText2(doc, x_pos, y_pos, nomination());
-            if (temp[0].includes('Transfert du siège social')) addText2(doc, x_pos, y_pos, transfert());
+            if (temp[0].includes('Ontslag')) addText2(doc, x_pos, y_pos, demission());
+            if (temp[0].includes('Benoeming')) addText2(doc, x_pos, y_pos, nomination());
+            if (temp[0].includes('Overdracht van de statutaire zetel')) addText2(doc, x_pos, y_pos, transfert());
             if (temp[0].includes('Changement')) addText2(doc, x_pos, y_pos, changement());
         }
         y_pos += 10;
@@ -282,13 +282,13 @@ function setPage2Inputs(doc, data){
         y_pos += 5;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
             var temp = $('#select_objet_acte').val();
-            if (temp[1].includes('Transfert des')) {
+            if (temp[1].includes('Overdracht van aandelen')) {
                 addText2(doc, x_pos, y_pos, cession());
                 for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
-            if (temp[1].includes('Démission')) addText2(doc, x_pos, y_pos, demission());
-            if (temp[1].includes('Nomination')) addText2(doc, x_pos, y_pos, nomination());
-            if (temp[1].includes('Transfert du siège social')) addText2(doc, x_pos, y_pos, transfert());
+            if (temp[1].includes('Ontslag')) addText2(doc, x_pos, y_pos, demission());
+            if (temp[1].includes('Benoeming')) addText2(doc, x_pos, y_pos, nomination());
+            if (temp[1].includes('Overdracht van de statutaire zetel')) addText2(doc, x_pos, y_pos, transfert());
             if (temp[1].includes('Changement')) addText2(doc, x_pos, y_pos, changement());
         }
         y_pos += 10;
@@ -302,13 +302,13 @@ function setPage2Inputs(doc, data){
         y_pos += 5;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
             var temp = $('#select_objet_acte').val();
-            if (temp[2].includes('Transfert des')) {
+            if (temp[2].includes('Overdracht van aandelen')) {
                 addText2(doc, x_pos, y_pos, cession());
                 for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
-            if (temp[2].includes('Démission')) addText2(doc, x_pos, y_pos, demission());
-            if (temp[2].includes('Nomination')) addText2(doc, x_pos, y_pos, nomination());
-            if (temp[2].includes('Transfert du siège social')) addText2(doc, x_pos, y_pos, transfert());
+            if (temp[2].includes('Ontslag')) addText2(doc, x_pos, y_pos, demission());
+            if (temp[2].includes('Benoeming')) addText2(doc, x_pos, y_pos, nomination());
+            if (temp[2].includes('Overdracht van de statutaire zetel')) addText2(doc, x_pos, y_pos, transfert());
             if (temp[2].includes('Changement')) addText2(doc, x_pos, y_pos, changement());
         }
         y_pos += 10;
@@ -322,13 +322,13 @@ function setPage2Inputs(doc, data){
         y_pos += 5;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
             var temp = $('#select_objet_acte').val();
-            if (temp[3].includes('Transfert des')) {
+            if (temp[3].includes('Overdracht van aandelen')) {
                 addText2(doc, x_pos, y_pos, cession());
                 for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
-            if (temp[3].includes('Démission')) addText2(doc, x_pos, y_pos, demission());
-            if (temp[3].includes('Nomination')) addText2(doc, x_pos, y_pos, nomination());
-            if (temp[3].includes('Transfert du siège social')) addText2(doc, x_pos, y_pos, transfert());
+            if (temp[3].includes('Ontslag')) addText2(doc, x_pos, y_pos, demission());
+            if (temp[3].includes('Benoeming')) addText2(doc, x_pos, y_pos, nomination());
+            if (temp[3].includes('Overdracht van de statutaire zetel')) addText2(doc, x_pos, y_pos, transfert());
             if (temp[3].includes('Changement')) addText2(doc, x_pos, y_pos, changement());
         }
         y_pos += 10;
@@ -342,13 +342,13 @@ function setPage2Inputs(doc, data){
         y_pos += 5;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
             var temp = $('#select_objet_acte').val();
-            if (temp[4].includes('Transfert des')) {
+            if (temp[4].includes('Overdracht van aandelen')) {
                 addText2(doc, x_pos, y_pos, cession());
                 for(var i=0; i<getTailleListeDesCessions(); i++) y_pos += 5;
             }
-            if (temp[4].includes('Démission')) addText2(doc, x_pos, y_pos, demission());
-            if (temp[4].includes('Nomination')) addText2(doc, x_pos, y_pos, nomination());
-            if (temp[4].includes('Transfert du siège social')) addText2(doc, x_pos, y_pos, transfert());
+            if (temp[4].includes('Ontslag')) addText2(doc, x_pos, y_pos, demission());
+            if (temp[4].includes('Benoeming')) addText2(doc, x_pos, y_pos, nomination());
+            if (temp[4].includes('Overdracht van de statutaire zetel')) addText2(doc, x_pos, y_pos, transfert());
             if (temp[4].includes('Changement')) addText2(doc, x_pos, y_pos, changement());
         }
         y_pos += 10;
@@ -392,14 +392,14 @@ function setPage2Inputs(doc, data){
         }
     };
 
-    if($('#select_objet_acte').val().indexOf('Transfert des parts sociales') >= 0 || $('#select_objet_acte').val().indexOf('Transfert des actions') >= 0)
+    if($('#select_objet_acte').val().indexOf('Overdracht van aandelen') >= 0)
     {
         nouvelleRepartition();
     }
 
     var typeSignataire = '';
-    if ($('#select_objet_acte').val().indexOf("Nomination d'un administrateur") >= 0) typeSignataire = 'Bestuurder';
-    if ($('#select_objet_acte').val().indexOf("Nomination d'un gérant") >= 0) typeSignataire = 'Zaakvoerder';
+    if ($('#select_objet_acte').val().indexOf("Benoeming van zaakvoerder") >= 0) typeSignataire = 'Zaakvoerder';
+    if ($('#select_objet_acte').val().indexOf("Benoeming van bestuurder") >= 0) typeSignataire = 'Bestuurder';
 
     y_pos += 10;
     addText(doc, x_pos+5, y_pos, typeSignataire);
@@ -418,36 +418,36 @@ function setPage3Inputs(doc, data){
     var fait_a = data[14];
     var date = data[15];
 
-    var x_pos = 77;
+    var x_pos = 82;
     var y_pos = 249.5;
 
     var longueur = soussigne + " " + soussigneP;
 
     if (longueur.length > 15){
         doc.setFontSize(9);
-        doc.setFontType("bold");
-        addText(doc, x_pos, y_pos-0.3, soussigne + " " + soussigneP);
-    }
-    else{
-        doc.setFontSize(11);
-        doc.setFontType("bold");
-        addText(doc, x_pos, y_pos, soussigne + " " + soussigneP);
     }
 
+    if (longueur.length > 20) {
+        doc.setFontSize(8);
+    }
 
+    if (longueur.length > 23) {
+        doc.setFontSize(7);
+    }
+
+    addText(doc, x_pos, y_pos, longueur);
 
     doc.setFontSize(11);
     doc.setFontType("bold");
-    x_pos += 70;
+    x_pos += 75;
     y_pos -= 0.2;
     addText(doc, x_pos, y_pos, agissant_comme);
 
-    x_pos -= 69.5;
-    y_pos += 12.4;
+    x_pos -= 71;
+    y_pos += 16;
     addText(doc, x_pos, y_pos, fait_a);
 
-    x_pos += 50;
-    y_pos -= 0.1;
+    x_pos += 62;
     addText(doc, x_pos, y_pos, date);
 }
 
@@ -470,15 +470,15 @@ function setPage4Inputs(doc, data){
     var localite_new = data[21];
     var pays_new = data[22];
 
-    var x_pos = 96;
-    var y_pos = 76.5;
+    var x_pos = 98;
+    var y_pos = 76;
 
     doc.setFontSize(11);
     doc.setFontType("bold");
     addText(doc, x_pos, y_pos, numero_entreprise);
 
     x_pos -= 10;
-    y_pos += 13.7;
+    y_pos += 12;
     addText(doc, x_pos, y_pos, nom);
 
     y_pos += 38.6;
@@ -490,7 +490,7 @@ function setPage4Inputs(doc, data){
 
     y_pos += 13;
     if (objet_acte !== "" && objet_acte !== null){
-        if (objet_acte.indexOf('Transfert du siège social') >= 0){
+        if (objet_acte.indexOf('Overdracht van de statutaire zetel') >= 0){
             addText(doc, x_pos, y_pos, rue_new);
 
             y_pos += 6;
@@ -520,45 +520,44 @@ function setPage5Inputs(doc, data){
     var fait_a = data[14];
     var date = data[15];
 
-    var x_pos = 15.5;
-    var y_pos = 132;
+    var x_pos = 18;
+    var y_pos = 140;
     doc.setFontSize(10);
     doc.setFontType("normal");
 
     var liste = $('#select_objet_acte').val();
 
-    if(liste.indexOf('Nomination d\'un gérant') >= 0 || liste.indexOf('Nomination d\'un administrateur') >= 0){
+    if(liste.indexOf('Benoeming van zaakvoerder') >= 0 || liste.indexOf('Benoeming van bestuurder') >= 0){
         doc.setFillColor(255,255,255);
-        doc.rect(x_pos-5, y_pos-5, 20, 10, 'F');
+        doc.rect(x_pos-6, y_pos-5, 36, 12, 'F');
         var n_registre_national = document.getElementById('registre_national_nouveau').value;
         var n_nom_prenom = document.getElementById('nom_new').value.toUpperCase() + " " + (document.getElementById('prenom_new').value).charAt(0).toUpperCase() + (document.getElementById('prenom_new').value).substring(1);
         var n_qualite = getTypeOfPerson();
         var n_date = document.getElementById('date').value;
 
-        addText(doc, x_pos, y_pos, "N");
+        addText(doc, x_pos, y_pos, "B");
         addText(doc, (x_pos+10), y_pos, n_registre_national);
         addText(doc, (x_pos+50), y_pos, n_nom_prenom);
-        addText(doc, (x_pos+134), y_pos, n_qualite);
-        addText(doc, (x_pos+164), y_pos, n_date);
+        addText(doc, (x_pos+128), y_pos, n_qualite);
+        addText(doc, (x_pos+160), y_pos, n_date);
 
         y_pos += 5;
     }
 
-    if(liste.indexOf('Démission d\'un gérant') >= 0 || liste.indexOf('Démission d\'un administrateur') >= 0){
+    if(liste.indexOf('Ontslag van zaakvoerder') >= 0 || liste.indexOf('Ontslag van bestuurder') >= 0){
         var c_registre_national = document.getElementById('registre_national_ancien').value;
         var c_nom_prenom = document.getElementById('nom_ancien').value.toUpperCase() + " " + (document.getElementById('prenom_ancien').value).charAt(0).toUpperCase() + (document.getElementById('prenom_ancien').value).substring(1);
         var c_qualite = getTypeOfPerson();
         var c_date = document.getElementById('date').value;
-        addText(doc, x_pos, y_pos, "C");
+        addText(doc, x_pos, y_pos, "E");
         addText(doc, (x_pos+10), y_pos, c_registre_national);
         addText(doc, (x_pos+50), y_pos, c_nom_prenom);
-        addText(doc, (x_pos+134), y_pos, c_qualite);
-        addText(doc, (x_pos+164), y_pos, c_date);
-
+        addText(doc, (x_pos+128), y_pos, c_qualite);
+        addText(doc, (x_pos+160), y_pos, c_date);
     }
 
-    x_pos = 75;
-    y_pos = 233;
+    x_pos = 80;
+    y_pos = 248.5;
 
     doc.setFontSize(11);
     doc.setFontType("bold");
@@ -566,26 +565,29 @@ function setPage5Inputs(doc, data){
 
     if (longueur.length > 15){
         doc.setFontSize(9);
-        doc.setFontType("bold");
-        addText(doc, x_pos, y_pos-0.3, soussigne + " " + soussigneP);
     }
-    else{
-        doc.setFontSize(11);
-        doc.setFontType("bold");
-        addText(doc, x_pos, y_pos, soussigne + " " + soussigneP);
+
+    if (longueur.length > 20) {
+        doc.setFontSize(8);
     }
+
+    if (longueur.length > 23) {
+        doc.setFontSize(7);
+    }
+
+    addText(doc, x_pos, y_pos, longueur);
 
     doc.setFontSize(11);
     doc.setFontType("bold");
-    x_pos += 70;
+    x_pos += 87;
     y_pos -= 0.2;
     addText(doc, x_pos, y_pos, agissant_comme);
 
-    x_pos -= 78;
-    y_pos += 12.8;
+    x_pos -= 90;
+    y_pos += 14;
     addText(doc, x_pos, y_pos, fait_a);
 
-    x_pos += 50;
+    x_pos += 60;
     addText(doc, x_pos, y_pos, date);
 }
 
@@ -842,8 +844,8 @@ function demission(){
 
     var personne = sexe + " " + nom.toUpperCase() + " " + (prenom.charAt(0).toUpperCase() + prenom.substring(1));
 
-    if ($('#select_objet_acte').val().indexOf("Démission d'un gérant") >= 0) return personne + " wordt ontslagen als zaakvoerder, er wordt kwijting gegeven voor zijn beheer tot op heden.";
-    if ($('#select_objet_acte').val().indexOf("Démission d'un administrateur") >= 0) return personne + " wordt ontslagen als bestuurder, er wordt kwijting gegeven voor zijn beheer tot op heden.";
+    if ($('#select_objet_acte').val().indexOf("Ontslag van zaakvoerder") >= 0) return personne + " wordt ontslagen als zaakvoerder, er wordt kwijting gegeven voor zijn beheer tot op heden.";
+    if ($('#select_objet_acte').val().indexOf("Ontslag van bestuurder") >= 0) return personne + " wordt ontslagen als bestuurder, er wordt kwijting gegeven voor zijn beheer tot op heden.";
 }
 
 function nomination(){
@@ -867,8 +869,8 @@ function nomination(){
 
     var adresse = rue + " " + numero + " " + boite + " - " + code_postal + " " + localite;
 
-    if ($('#select_objet_acte').val().indexOf("Nomination d'un gérant") >= 0) return personne + " woonachtig te " + adresse + " is benoemt zaakvoerder voor onbepaalde tijd.";
-    if ($('#select_objet_acte').val().indexOf("Nomination d'un administrateur") >= 0) return personne + " woonachtig te " + adresse + " is benoemt bestuurder voor onbepaalde tijd.";
+    if ($('#select_objet_acte').val().indexOf("Benoeming van zaakvoerder") >= 0) return personne + " woonachtig te " + adresse + " is benoemt zaakvoerder voor onbepaalde tijd.";
+    if ($('#select_objet_acte').val().indexOf("Benoeming van bestuurder") >= 0) return personne + " woonachtig te " + adresse + " is benoemt bestuurder voor onbepaalde tijd.";
 }
 
 function changement(){
@@ -1050,7 +1052,8 @@ function getDateLettrer(){
     var date = document.getElementById('date').value;
     var asso_actio = getTypeOfPersons();
 
-    return "In het jaar " + NumberToLetter(date.substring(6)) + ", op" + " " + date.slice(0, -8) + " " + trouverLeMois(date.slice(3, -5)) + " " + "om achttien uur, volgt, de gewone algemene vergadering" + " " + asso_actio + ".";
+    // return "In het jaar " + NumberToLetter(date.substring(6)) + ", op" + " " + date.slice(0, -8) + " " + trouverLeMois(date.slice(3, -5)) + " " + "om achttien uur, volgt, de gewone algemene vergadering" + " " + asso_actio + ".";
+    return "In het jaar " + date.substring(6) + ", op" + " " + date.slice(0, -8) + " " + trouverLeMois(date.slice(3, -5)) + " " + "om achttien uur, volgt, de gewone algemene vergadering.";
 }
 
 function getListeDesCessionnaires(){
@@ -1124,21 +1127,21 @@ function getListeDesCessionnairesSansParts(){
 }
 
 function getTypeOfPersons() {
-    if ($('#select_objet_acte').val().indexOf('Nomination d\'un gérant') >= 0) return 'vennoten';
-    if ($('#select_objet_acte').val().indexOf('Nomination d\'un administrateur') >= 0) return 'aandeelhouders';
-    if ($('#select_objet_acte').val().indexOf('Démission d\'un gérant') >= 0) return 'vennoten';
-    if ($('#select_objet_acte').val().indexOf('Démission d\'un administrateur') >= 0) return 'aandeelhouders';
-    if ($('#select_objet_acte').val().indexOf('Transfert des parts sociales') >= 0) return 'vennoten';
-    if ($('#select_objet_acte').val().indexOf('Transfert des actions') >= 0) return 'aandeelhouders';
+    if ($('#select_objet_acte').val().indexOf('Benoeming van zaakvoerder') >= 0) return 'vennoten';
+    if ($('#select_objet_acte').val().indexOf('Benoeming van bestuurder') >= 0) return 'aandeelhouders';
+    if ($('#select_objet_acte').val().indexOf('Ontslag van zaakvoerder') >= 0) return 'vennoten';
+    if ($('#select_objet_acte').val().indexOf('Ontslag van bestuurder') >= 0) return 'aandeelhouders';
+    if ($('#select_objet_acte').val().indexOf('Overdracht van aandelen') >= 0) return 'vennoten';
+    if ($('#select_objet_acte').val().indexOf('Overdracht van aandelen') >= 0) return 'aandeelhouders';
 }
 
 function getTypeOfPerson() {
-    if ($('#select_objet_acte').val().indexOf('Nomination d\'un gérant') >= 0) return 'Zaakvoerder';
-    if ($('#select_objet_acte').val().indexOf('Nomination d\'un administrateur') >= 0) return 'Bestuurder';
-    if ($('#select_objet_acte').val().indexOf('Démission d\'un gérant') >= 0) return 'Zaakvoerder';
-    if ($('#select_objet_acte').val().indexOf('Démission d\'un administrateur') >= 0) return 'Bestuurder';
-    if ($('#select_objet_acte').val().indexOf('Transfert des parts sociales') >= 0) return 'Zaakvoerder';
-    if ($('#select_objet_acte').val().indexOf('Transfert des actions') >= 0) return 'Bestuurder';
+    if ($('#select_objet_acte').val().indexOf('Benoeming van zaakvoerder') >= 0) return 'Zaakvoerder';
+    if ($('#select_objet_acte').val().indexOf('Benoeming van bestuurder') >= 0) return 'Bestuurder';
+    if ($('#select_objet_acte').val().indexOf('Ontslag van zaakvoerder') >= 0) return 'Zaakvoerder';
+    if ($('#select_objet_acte').val().indexOf('Ontslag van bestuurder') >= 0) return 'Bestuurder';
+    if ($('#select_objet_acte').val().indexOf('Overdracht van aandelen') >= 0) return 'Zaakvoerder';
+    if ($('#select_objet_acte').val().indexOf('Overdracht van aandelen') >= 0) return 'Bestuurder';
 }
 
 function fillFormAuto() {
