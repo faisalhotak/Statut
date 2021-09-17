@@ -127,7 +127,6 @@ function setPage1AG(doc, data, x_pos, y_pos){
     addText(doc, x_pos, y_pos, anciens);
     y_pos += anciens.length * 5;
 
-
     y_pos += 5;
     // addText(doc, x_pos, y_pos, "qui " + getReuni(anciens) + " la totalité des " + getTypeDividende() + " représentatives du capital de la société.");
 
