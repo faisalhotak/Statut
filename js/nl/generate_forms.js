@@ -811,8 +811,8 @@ function getNbResolution(){
 }
 
 function getTypeDividende(){
-    if ($('#select_objet_acte').val().indexOf('Transfert des parts sociales') >= 0 || $('#select_objet_acte').val().indexOf("Démission d'un gérant") >= 0 || $('#select_objet_acte').val().indexOf("Nomination d'un gérant") >= 0) return 'aandelen';
-    if ($('#select_objet_acte').val().indexOf('Transfert des actions') >= 0 || $('#select_objet_acte').val().indexOf("Démission d'un administrateur") >= 0 || $('#select_objet_acte').val().indexOf("Nomination d'un administrateur") >= 0) return 'aandelen';
+    if ($('#select_objet_acte').val().indexOf('Overdracht van aandelen') >= 0 || $('#select_objet_acte').val().indexOf("Ontslag van zaakvoerder") >= 0 || $('#select_objet_acte').val().indexOf("Benoeming van zaakvoerder") >= 0) return 'aandelen';
+    if ($('#select_objet_acte').val().indexOf('Overdracht van aandelen') >= 0 || $('#select_objet_acte').val().indexOf("Ontslag van bestuurder") >= 0 || $('#select_objet_acte').val().indexOf("Benoeming van bestuurder") >= 0) return 'aandelen';
 }
 
 function getReuni(liste){

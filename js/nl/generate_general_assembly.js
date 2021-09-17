@@ -112,7 +112,7 @@ function setPage1AG(doc, data, x_pos, y_pos){
     doc.setFontStyle('bold');
     addText(doc, x_pos, y_pos, "Notulen van de buitengewone algemene vergadering".toUpperCase());
     doc.setFillColor(0,0,0);
-    doc.rect(x_pos, y_pos+0.5, 140, 0.5, 'F');
+    doc.rect(x_pos, y_pos+0.5, 134, 0.5, 'F');
 
     doc.setFontStyle('normal');
 
@@ -132,13 +132,18 @@ function setPage1AG(doc, data, x_pos, y_pos){
     // addText(doc, x_pos, y_pos, "qui " + getReuni(anciens) + " la totalité des " + getTypeDividende() + " représentatives du capital de la société.");
 
     y_pos += 10;
-    addText(doc, x_pos, y_pos, "De vergadering wordt geopend onder het voorzitterschap van " + getPresident(liste) + ".");
+    addText(doc, x_pos, y_pos, "De vergadering wordt geopend onder het voorzitterschap van :");
+
+    y_pos += 10;
+    doc.setFontStyle('bold');
+    addText(doc, x_pos, y_pos, getPresident(liste) + ".");
+    doc.setFontStyle('normal');
 
     y_pos += 15;
     addText(doc, x_pos, y_pos, "De president verklaart vervolgens :");
 
     y_pos += 10;
-    addText(doc, x_pos, y_pos, "1. Dat het doel van deze vergadering is om hier op de agenda te beraadslagen, herinnerd aan :");
+    addText(doc, x_pos, y_pos, "1. Dat het doel van deze vergadering is om hier op de agenda te beraadslagen, herinnerd aan:");
 
     x_pos += 65;
     y_pos += 15;
@@ -262,7 +267,7 @@ function setPage2AG(doc, data, x_pos, y_pos){
         addText(doc, x_pos, y_pos, "eerste resolutie".toUpperCase());
         if (souligner) {
             doc.setFillColor(0, 0, 0);
-            doc.rect(x_pos, y_pos + 0.5, 48.5, 0.2, 'F');
+            doc.rect(x_pos, y_pos + 0.5, 40, 0.2, 'F');
         }
 
         y_pos += 10;
@@ -284,7 +289,7 @@ function setPage2AG(doc, data, x_pos, y_pos){
         addText(doc, x_pos, y_pos, "tweede resolutie".toUpperCase());
         if (souligner){
             doc.setFillColor(0,0,0);
-            doc.rect(x_pos, y_pos+0.5, 49.5, 0.2, 'F');
+            doc.rect(x_pos, y_pos+0.5, 43, 0.2, 'F');
         }
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
@@ -304,7 +309,7 @@ function setPage2AG(doc, data, x_pos, y_pos){
         addText(doc, x_pos, y_pos, "derde resolutie".toUpperCase());
         if (souligner){
             doc.setFillColor(0,0,0);
-            doc.rect(x_pos, y_pos+0.5, 50, 0.2, 'F');
+            doc.rect(x_pos, y_pos+0.5, 40, 0.2, 'F');
         }
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
@@ -324,7 +329,7 @@ function setPage2AG(doc, data, x_pos, y_pos){
         addText(doc, x_pos, y_pos, "vierde resolutie".toUpperCase());
         if (souligner){
             doc.setFillColor(0,0,0);
-            doc.rect(x_pos, y_pos+0.5, 52.5, 0.2, 'F');
+            doc.rect(x_pos, y_pos+0.5, 40, 0.2, 'F');
         }
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
@@ -344,7 +349,7 @@ function setPage2AG(doc, data, x_pos, y_pos){
         addText(doc, x_pos, y_pos, "vijfde resolutie".toUpperCase());
         if (souligner){
             doc.setFillColor(0,0,0);
-            doc.rect(x_pos, y_pos+0.5, 52.5, 0.2, 'F');
+            doc.rect(x_pos, y_pos+0.5, 40, 0.2, 'F');
         }
         y_pos += 10;
         if ($('#select_objet_acte').val().length > 0 && $('#select_objet_acte').val() !== null) {
