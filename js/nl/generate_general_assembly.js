@@ -146,7 +146,9 @@ function setPage1AG(doc, data, x_pos, y_pos){
 
     x_pos += 65;
     y_pos += 15;
+    doc.setFontStyle('bold');
     addText(doc, x_pos, y_pos, "agenda".toUpperCase());
+    doc.setFontStyle('normal');
     doc.setFillColor(0,0,0);
     doc.rect(x_pos, y_pos+0.5, 18, 0.2, 'F');
 
