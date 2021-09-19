@@ -234,7 +234,7 @@ function setPage2Inputs(doc, data){
     y_pos += 10;
     doc.text(x_pos, y_pos, objet_acte.toString(), {maxWidth: 120, align: "justify"});
 
-    x_pos -= 26;
+    x_pos -= 30;
     y_pos += 5.5;
 
     var longueur = $('#select_objet_acte').val();
@@ -250,7 +250,7 @@ function setPage2Inputs(doc, data){
     addText2(doc, x_pos, y_pos, getDateLettrer());
 
     var souligner = false;
-    y_pos += 10;
+    y_pos += 15;
     let premiereResolution = function () {
         addText2(doc, x_pos, y_pos, "eerste resolutie".toUpperCase());
         if (souligner) {
@@ -1050,7 +1050,7 @@ function calculerLesParts(){
 
 function getDateLettrer(){
     var date = document.getElementById('date').value;
-    var asso_actio = getTypeOfPersons();
+    // var asso_actio = getTypeOfPersons();
 
     // return "In het jaar " + NumberToLetter(date.substring(6)) + ", op" + " " + date.slice(0, -8) + " " + trouverLeMois(date.slice(3, -5)) + " " + "om achttien uur, volgt, de gewone algemene vergadering" + " " + asso_actio + ".";
     return "In het jaar " + date.substring(6) + ", op" + " " + date.slice(0, -8) + " " + trouverLeMois(date.slice(3, -5)) + " " + "om achttien uur, volgt, de gewone algemene vergadering.";
