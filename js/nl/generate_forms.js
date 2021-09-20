@@ -784,7 +784,6 @@ function addText2(doc, x_pos, y_pos, texte){
 }
 
 function getPresident(liste){
-
     if (liste.childElementCount > 0){
         for (var i=0; i < liste.childElementCount ; i++){
             var id = liste.getElementsByTagName('div')[0].id;
