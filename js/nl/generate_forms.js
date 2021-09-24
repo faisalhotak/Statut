@@ -41,23 +41,23 @@ function ecriture(doc, data, images, save_to_device) {
     var width = doc.internal.pageSize.getWidth();
     var height = doc.internal.pageSize.getHeight();
 
-    doc.addImage(images[0] , 'png', 0, 0, width, height);
+    doc.addImage(images[0] , 'png', 0, 0, width, height, undefined, 'FAST');
     setPage1Inputs(doc, data);
     doc.addPage();
 
-    doc.addImage(images[1] , 'png', 0, 0, width, height);
+    doc.addImage(images[1] , 'png', 0, 0, width, height, undefined, 'FAST');
     setPage2Inputs(doc, data);
     doc.addPage();
 
-    doc.addImage(images[2] , 'png', 0, 0, width, height);
+    doc.addImage(images[2] , 'png', 0, 0, width, height, undefined, 'FAST');
     setPage3Inputs(doc, data);
     doc.addPage();
 
-    doc.addImage(images[3] , 'png', 0, 0, width, height);
+    doc.addImage(images[3] , 'png', 0, 0, width, height, undefined, 'FAST');
     setPage4Inputs(doc, data);
     doc.addPage();
 
-    doc.addImage(images[4] , 'png', 0, 0, width, height);
+    doc.addImage(images[4] , 'png', 0, 0, width, height, undefined, 'FAST');
     setPage5Inputs(doc, data);
 
     if (save_to_device) {
